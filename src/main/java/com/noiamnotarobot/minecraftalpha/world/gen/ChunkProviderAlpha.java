@@ -159,7 +159,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
                 for (int var15 = 127; var15 >= 0; --var15) {
                     int var16 = (var7 * 16 + var8) * 128 + var15;
                     if (var15 <= this.rand.nextInt(6) - 1) {
-                        var3[var16] = Blocks.bedrock;
+                        var3[var16] = AlphaBlock.bedrock;
                     } else {
                         Block var17 = var3[var16];
                         if (var17 == Blocks.air) {
@@ -177,15 +177,15 @@ public class ChunkProviderAlpha implements IChunkProvider {
                                     }
 
                                     if (var10) {
-                                        var14 = Blocks.gravel;
+                                        var14 = AlphaBlock.gravel;
                                     }
 
                                     if (var9) {
-                                        var13 = Blocks.sand;
+                                        var13 = AlphaBlock.sand;
                                     }
 
                                     if (var9) {
-                                        var14 = Blocks.sand;
+                                        var14 = AlphaBlock.sand;
                                     }
                                 }
 

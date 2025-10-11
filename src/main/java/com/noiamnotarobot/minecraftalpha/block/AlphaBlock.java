@@ -36,12 +36,19 @@ public class AlphaBlock extends Block {
     public static final Block cobblestone = new AlphaBlock(Material.rock, "cobblestone").setHardness(2.0F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
-    // planks
+    public static final Block planks = (new AlphaBlock(Material.wood, "planks")).setHardness(2.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundWoodFootstep);
     // sapling
-    // bedrock
+    public static final Block bedrock = new AlphaBlock(Material.rock, "bedrock").setHardness(-1.0F)
+        .setResistance(6000000.0F)
+        .setStepSound(soundStoneFootstep);
     // water
     // lava
-    // sand
+    public static final Block sand = (new AlphaBlockSand()).setHardness(0.5F)
+        .setStepSound(soundSandFootstep);
+    public static final Block gravel = (new AlphaBlockGravel()).setHardness(0.6F)
+        .setStepSound(soundGravelFootstep);
     // gravel
     // oreGold
     // oreIron
@@ -128,6 +135,10 @@ public class AlphaBlock extends Block {
         blocksList.add(grass);
         blocksList.add(dirt);
         blocksList.add(cobblestone);
+        blocksList.add(planks);
+        blocksList.add(bedrock);
+        blocksList.add(sand);
+        blocksList.add(gravel);
 
         MinecraftAlpha.LOG.info("Registering blocks...");
         int blocksRegistered = 0;
