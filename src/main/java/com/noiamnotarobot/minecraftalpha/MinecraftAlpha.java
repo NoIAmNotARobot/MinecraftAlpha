@@ -1,7 +1,12 @@
 package com.noiamnotarobot.minecraftalpha;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -10,19 +15,40 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MinecraftAlpha.MODID, version = Tags.VERSION, name = "MyMod", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(
+    modid = MinecraftAlpha.MODID,
+    version = Tags.VERSION,
+    name = "MinecraftAlpha",
+    acceptedMinecraftVersions = "[1.7.10]")
 public class MinecraftAlpha {
 
-    public static final String MODID = "mymodid";
+    public static final String MODID = "minecraftalpha";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.myname.mymodid.ClientProxy", serverSide = "com.myname.mymodid.CommonProxy")
+    public static CreativeTabs tabAlpha = new CreativeTabs("alpha") {
+
+        @Override
+        public Item getTabIconItem() {
+            return Item.getItemFromBlock(AlphaBlock.stone);
+        }
+    };
+
+    @SidedProxy(
+        clientSide = "com.noiamnotarobot.minecraftalpha.ClientProxy",
+        serverSide = "com.noiamnotarobot.minecraftalpha.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
+        Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
+
+        MinecraftAlpha.LOG.info(Config.greeting);
+        MinecraftAlpha.LOG.info("I am MinecraftAlpha, mod version " + Tags.VERSION + ".");
+
+        AlphaBlock.preInit();
+
         proxy.preInit(event);
     }
 
