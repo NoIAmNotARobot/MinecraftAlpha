@@ -1,5 +1,8 @@
 package com.noiamnotarobot.minecraftalpha.block;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -22,13 +25,16 @@ public class AlphaBlock extends Block {
     public static final AlphaStepSound soundClothFootstep = new AlphaStepSound("cloth", 1.0F, 1.0F);
     public static final AlphaStepSound soundSandFootstep = new AlphaStepSoundSand("sand", 1.0F, 1.0F);
 
+    public static List<Block> blocksList = new ArrayList<>();
     public static final Block stone = new AlphaBlockStone().setHardness(1.5F)
         .setResistance(10.0F)
-        .setStepSound(soundStoneFootstep)
-        .setBlockName("stone");
+        .setStepSound(soundStoneFootstep);
     // grass
-    // dirt
-    // cobblestone
+    public static final Block dirt = new AlphaBlockDirt().setHardness(0.6F)
+        .setStepSound(soundGravelFootstep);
+    public static final Block cobblestone = new AlphaBlock(Material.rock, "cobblestone").setHardness(2.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundStoneFootstep);
     // planks
     // sapling
     // bedrock
@@ -109,12 +115,24 @@ public class AlphaBlock extends Block {
     // jukebox
     // fence
 
-    public AlphaBlock(Material materialIn) {
+    public AlphaBlock(Material materialIn, String name) {
         super(materialIn);
+        this.setBlockName(name);
+        this.setBlockTextureName(MinecraftAlpha.MODID + ":" + name);
         this.setCreativeTab(MinecraftAlpha.tabAlpha);
     }
 
     public static void preInit() {
-        GameRegistry.registerBlock(stone, "stone");
+        blocksList.add(stone);
+        blocksList.add(dirt);
+        blocksList.add(cobblestone);
+
+        MinecraftAlpha.LOG.info("Registering blocks...");
+        int blocksRegistered = 0;
+        for (Block block : blocksList) {
+            GameRegistry.registerBlock(block, block.getUnlocalizedName());
+            blocksRegistered++;
+        }
+        MinecraftAlpha.LOG.info("Registered {} blocks!", blocksRegistered);
     }
 }

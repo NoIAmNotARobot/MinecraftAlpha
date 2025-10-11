@@ -25,7 +25,10 @@ public class MinecraftAlpha {
     public static final String MODID = "minecraftalpha";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    public static CreativeTabs tabAlpha = new CreativeTabs("alpha") {
+    @Mod.Instance
+    public static MinecraftAlpha instance;
+
+    public static CreativeTabs tabAlpha = new CreativeTabs("minecraftalpha") {
 
         @Override
         public Item getTabIconItem() {
