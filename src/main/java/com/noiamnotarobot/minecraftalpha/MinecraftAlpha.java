@@ -32,7 +32,7 @@ public class MinecraftAlpha {
 
         @Override
         public Item getTabIconItem() {
-            return Item.getItemFromBlock(AlphaBlock.stone);
+            return Item.getItemFromBlock(AlphaBlock.grass);
         }
     };
 

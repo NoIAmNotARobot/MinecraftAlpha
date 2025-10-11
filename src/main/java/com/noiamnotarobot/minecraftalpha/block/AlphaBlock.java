@@ -29,8 +29,9 @@ public class AlphaBlock extends Block {
     public static final Block stone = new AlphaBlockStone().setHardness(1.5F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
-    // grass
-    public static final Block dirt = new AlphaBlockDirt().setHardness(0.6F)
+    public static final Block grass = new AlphaBlockGrass().setHardness(0.6F)
+        .setStepSound(soundGrassFootstep);
+    public static final Block dirt = new AlphaBlockDirt().setHardness(0.5F)
         .setStepSound(soundGravelFootstep);
     public static final Block cobblestone = new AlphaBlock(Material.rock, "cobblestone").setHardness(2.0F)
         .setResistance(10.0F)
@@ -124,6 +125,7 @@ public class AlphaBlock extends Block {
 
     public static void preInit() {
         blocksList.add(stone);
+        blocksList.add(grass);
         blocksList.add(dirt);
         blocksList.add(cobblestone);
 
