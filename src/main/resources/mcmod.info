@@ -1,0 +1,21 @@
+{
+	"modListVersion": 2,
+	"modList": [{
+		"modid": "${modId}",
+		"name": "${modName}",
+		"description": "A mod that adds any and all content from Minecraft Alpha 1.1.2_01 into GTNH, in the form of a new dimension.",
+		"version": "${modVersion}",
+		"mcversion": "${minecraftVersion}",
+		"url": "https://github.com/NoIAmNotARobot/MinecraftAlpha",
+		"updateUrl": "",
+		"authorList": ["NoIAmNotARobot"],
+		"credits": "",
+		"logoFile": "",
+		"screenshots": [],
+		"parent": "",
+		"requiredMods": [],
+		"dependencies": [],
+		"dependants": [],
+		"useDependencyInformation": false
+	}]
+}
