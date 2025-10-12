@@ -2,11 +2,13 @@ package com.noiamnotarobot.minecraftalpha;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.DimensionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
+import com.noiamnotarobot.minecraftalpha.world.WorldProviderAlpha;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -47,7 +49,6 @@ public class MinecraftAlpha {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
-        MinecraftAlpha.LOG.info(Config.greeting);
         MinecraftAlpha.LOG.info("I am MinecraftAlpha, mod version " + Tags.VERSION + ".");
 
         AlphaBlock.preInit();
@@ -58,12 +59,20 @@ public class MinecraftAlpha {
     @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
+        DimensionManager.registerProviderType(Config.dimensionProviderID, WorldProviderAlpha.class, false);
+
         proxy.init(event);
     }
 
     @Mod.EventHandler
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent event) throws RuntimeException {
+        if (!DimensionManager.isDimensionRegistered(Config.dimensionID)) {
+            DimensionManager.registerDimension(Config.dimensionID, Config.dimensionProviderID);
+        } else {
+            throw new RuntimeException(
+                "The dimension id {} is already in use by another mod, please pick another id for MinecraftAlpha.");
+        }
         proxy.postInit(event);
     }
 
