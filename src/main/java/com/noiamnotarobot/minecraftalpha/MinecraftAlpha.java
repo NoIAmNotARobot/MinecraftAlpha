@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.noiamnotarobot.minecraftalpha.biome.BiomeGenAlpha;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
+import com.noiamnotarobot.minecraftalpha.item.AlphaItem;
 import com.noiamnotarobot.minecraftalpha.world.WorldProviderAlpha;
 
 import cpw.mods.fml.common.Mod;
@@ -62,6 +63,7 @@ public class MinecraftAlpha {
             .setTemperatureRainfall(1.0F, 0.0F);
 
         AlphaBlock.preInit();
+        AlphaItem.preInit();
 
         proxy.preInit(event);
     }
