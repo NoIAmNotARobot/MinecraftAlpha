@@ -384,7 +384,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
 
     @Override
     public int getLoadedChunkCount() {
-        return 1;
+        return 0;
     }
 
     @Override

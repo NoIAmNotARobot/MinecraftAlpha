@@ -3,6 +3,8 @@ package com.noiamnotarobot.minecraftalpha.item;
 import java.util.ArrayList;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
 
@@ -15,7 +17,7 @@ public class AlphaItem extends Item {
     // pickaxeIron
     // axeIron
     // striker
-    // appleRed
+    public static Item appleRed = new AlphaItemFood("appleRed", 4);
     // bow
     public static Item arrow = new AlphaItem("arrow");
     public static Item coal = new AlphaItem("coal");
@@ -105,9 +107,13 @@ public class AlphaItem extends Item {
     // record13
     // recordCat
 
+    protected String unlocalizedName;
+
     public AlphaItem(String name) {
         this.setCreativeTab(MinecraftAlpha.tabAlpha);
-        this.setUnlocalizedName(name);
+        unlocalizedName = name;
+        this.setUnlocalizedName(unlocalizedName);
+        this.setTextureName(MinecraftAlpha.MODID + ":" + name);
     }
 
     public AlphaItem(String name, int maxStackSize) {
@@ -147,5 +153,21 @@ public class AlphaItem extends Item {
             itemsRegistered++;
         }
         MinecraftAlpha.LOG.info("Registered {} items!", itemsRegistered);
+    }
+
+    @Override
+    public String getUnlocalizedName() {
+        return "item." + MinecraftAlpha.MODID + "." + unlocalizedName;
+    }
+
+    @Override
+    public String getUnlocalizedName(ItemStack stack) {
+        return getUnlocalizedName();
+    }
+
+    @Override
+    public String getUnlocalizedNameInefficiently(ItemStack stack) {
+        String s = getUnlocalizedName();
+        return s == null ? "" : StatCollector.translateToLocal(s);
     }
 }

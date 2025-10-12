@@ -14,10 +14,9 @@ public class AlphaItemFood extends AlphaItem {
     }
 
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int var4, int var5, int var6, int var7,
-        float var8, float var9, float var10) {
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         stack.stackSize--;
         player.heal(this.healAmount);
-        return true;
+        return stack;
     }
 }

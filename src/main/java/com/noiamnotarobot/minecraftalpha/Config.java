@@ -27,7 +27,7 @@ public class Config {
             dimensionProviderID,
             0,
             255,
-            "ID number for the Dimension provider. WARNING: If changed, will break existing worlds.");
+            "ID number for the Dimension provider. WARNING: If changed, may break existing worlds.");
         biomeID = configuration.getInt(
             "biomeID",
             "dimension",

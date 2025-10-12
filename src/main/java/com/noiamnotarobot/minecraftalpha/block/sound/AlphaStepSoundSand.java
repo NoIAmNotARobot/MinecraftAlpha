@@ -1,5 +1,7 @@
 package com.noiamnotarobot.minecraftalpha.block.sound;
 
+import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+
 public class AlphaStepSoundSand extends AlphaStepSound {
 
     public AlphaStepSoundSand(String name, float volume, float frequency) {
@@ -8,6 +10,6 @@ public class AlphaStepSoundSand extends AlphaStepSound {
 
     @Override
     public String getBreakSound() {
-        return "step.gravel";
+        return MinecraftAlpha.MODID + ":step.gravel";
     }
 }

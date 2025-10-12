@@ -2,6 +2,7 @@ package com.noiamnotarobot.minecraftalpha.world;
 
 import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 
 import com.noiamnotarobot.minecraftalpha.Config;
@@ -64,5 +65,15 @@ public class WorldProviderAlpha extends WorldProviderSurface {
         } else {
             return new ChunkProviderAlpha(worldObj, worldObj.getSeed());
         }
+    }
+
+    @Override
+    public boolean canDoRainSnowIce(Chunk chunk) {
+        return false;
+    }
+
+    @Override
+    public boolean canDoLightning(Chunk chunk) {
+        return false;
     }
 }

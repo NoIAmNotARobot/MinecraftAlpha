@@ -2,8 +2,9 @@ package com.noiamnotarobot.minecraftalpha.block;
 
 import java.util.Random;
 
-import com.noiamnotarobot.minecraftalpha.item.AlphaItem;
 import net.minecraft.item.Item;
+
+import com.noiamnotarobot.minecraftalpha.item.AlphaItem;
 
 public class AlphaBlockGravel extends AlphaBlockSand {
 

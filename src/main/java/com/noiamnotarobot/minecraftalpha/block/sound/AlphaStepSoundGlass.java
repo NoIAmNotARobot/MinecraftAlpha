@@ -1,5 +1,7 @@
 package com.noiamnotarobot.minecraftalpha.block.sound;
 
+import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+
 public class AlphaStepSoundGlass extends AlphaStepSound {
 
     public AlphaStepSoundGlass(String name, float volume, float frequency) {
@@ -8,6 +10,6 @@ public class AlphaStepSoundGlass extends AlphaStepSound {
 
     @Override
     public String getBreakSound() {
-        return "random.glass";
+        return MinecraftAlpha.MODID + ":random.glass";
     }
 }

@@ -49,13 +49,21 @@ public class AlphaBlock extends Block {
         .setStepSound(soundSandFootstep);
     public static final Block gravel = new AlphaBlockGravel().setHardness(0.6F)
         .setStepSound(soundGravelFootstep);
-    public static final Block oreGold = new AlphaBlockOre("oreGold").setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep);
-    public static final Block oreIron = new AlphaBlockOre("oreIron").setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep);
-    public static final Block oreCoal = new AlphaBlockOre("oreCoal").setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep);
+    public static final Block oreGold = new AlphaBlockOre("oreGold").setHardness(3.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final Block oreIron = new AlphaBlockOre("oreIron").setHardness(3.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final Block oreCoal = new AlphaBlockOre("oreCoal").setHardness(3.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundStoneFootstep);
     // wood
     // leaves
-    // sponge
-    // glass
+    public static final Block sponge = new AlphaBlock(Material.sponge, "sponge").setHardness(0.6F)
+        .setStepSound(soundTypeGrass);
+    public static final Block glass = new AlphaBlockGlass(Material.glass, "glass", false).setHardness(0.3F)
+        .setStepSound(soundGlassFootstep);
     public static final Block clothRed = null;
     public static final Block clothOrange = null;
     public static final Block clothYellow = null;
@@ -70,17 +78,24 @@ public class AlphaBlock extends Block {
     public static final Block clothMagenta = null;
     public static final Block clothRose = null;
     public static final Block clothDarkGray = null;
-    public static final Block cloth = new AlphaBlock(Material.cloth, "cloth").setHardness(0.8F).setStepSound(soundClothFootstep);
+    public static final Block cloth = new AlphaBlock(Material.cloth, "cloth").setHardness(0.8F)
+        .setStepSound(soundClothFootstep);
     public static final Block clothWhite = null;
     // plantYellow
     // plantRed
     // mushroomBrown
     // muchroomRed
-    public static final Block blockGold = new AlphaBlockOreBlock("blockGold").setHardness(3.0F).setResistance(10.0F).setStepSound(soundMetalFootstep);
-    public static final Block blockIron = new AlphaBlockOreBlock("blockIron").setHardness(5.0F).setResistance(10.0F).setStepSound(soundMetalFootstep);
+    public static final Block blockGold = new AlphaBlockOreBlock("blockGold").setHardness(3.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundMetalFootstep);
+    public static final Block blockIron = new AlphaBlockOreBlock("blockIron").setHardness(5.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundMetalFootstep);
     // stairDouble
     // stairSingle
-    // brick
+    public static final Block brick = new AlphaBlock(Material.rock, "brick").setHardness(2.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundStoneFootstep);
     // tnt
     // bookshelf
     // cobblestoneMossy
@@ -91,8 +106,12 @@ public class AlphaBlock extends Block {
     // stairCompactWood
     // chest
     // redstoneWire
-    public static final Block oreDiamond = new AlphaBlockOre("oreDiamond").setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep);
-    public static final Block blockDiamond = new AlphaBlockOreBlock("blockDiamond").setHardness(5.0F).setResistance(10.0F).setStepSound(soundMetalFootstep);
+    public static final Block oreDiamond = new AlphaBlockOre("oreDiamond").setHardness(3.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final Block blockDiamond = new AlphaBlockOreBlock("blockDiamond").setHardness(5.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundMetalFootstep);
     // workbench
     // crops
     // tilledField
@@ -122,9 +141,12 @@ public class AlphaBlock extends Block {
     // jukebox
     // fence
 
+    protected String unlocalizedName;
+
     public AlphaBlock(Material materialIn, String name) {
         super(materialIn);
-        this.setBlockName(name);
+        unlocalizedName = name;
+        this.setBlockName(unlocalizedName);
         this.setBlockTextureName(MinecraftAlpha.MODID + ":" + name);
         this.setCreativeTab(MinecraftAlpha.tabAlpha);
     }
@@ -141,9 +163,12 @@ public class AlphaBlock extends Block {
         blocksList.add(oreGold);
         blocksList.add(oreIron);
         blocksList.add(oreCoal);
+        blocksList.add(sponge);
+        blocksList.add(glass);
         blocksList.add(cloth);
         blocksList.add(blockGold);
         blocksList.add(blockIron);
+        blocksList.add(brick);
         blocksList.add(oreDiamond);
         blocksList.add(blockDiamond);
 
@@ -154,5 +179,10 @@ public class AlphaBlock extends Block {
             blocksRegistered++;
         }
         MinecraftAlpha.LOG.info("Registered {} blocks!", blocksRegistered);
+    }
+
+    @Override
+    public String getUnlocalizedName() {
+        return "tile." + MinecraftAlpha.MODID + "." + unlocalizedName;
     }
 }

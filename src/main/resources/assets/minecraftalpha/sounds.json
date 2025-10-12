@@ -1,0 +1,65 @@
+{
+  "step.stone": {
+    "category": "block",
+    "sounds": [
+      "step/stone1",
+      "step/stone2",
+      "step/stone3",
+      "step/stone4"
+    ]
+  },
+  "step.wood": {
+    "category": "block",
+    "sounds": [
+      "step/wood1",
+      "step/wood2",
+      "step/wood3",
+      "step/wood4"
+    ]
+  },
+  "step.gravel": {
+    "category": "block",
+    "sounds": [
+      "step/gravel1",
+      "step/gravel2",
+      "step/gravel3",
+      "step/gravel4"
+    ]
+  },
+  "step.grass": {
+    "category": "block",
+    "sounds": [
+      "step/grass1",
+      "step/grass2",
+      "step/grass3",
+      "step/grass4"
+    ]
+  },
+  "step.cloth": {
+    "category": "block",
+    "sounds": [
+      "step/cloth1",
+      "step/cloth2",
+      "step/cloth3",
+      "step/cloth4"
+    ]
+  },
+  "step.sand": {
+    "category": "block",
+    "sounds": [
+      "step/sand1",
+      "step/sand2",
+      "step/sand3",
+      "step/sand4"
+    ]
+  },
+
+  "random.glass": {
+    "category": "block",
+    "sounds": [
+      "random/glass1",
+      "random/glass2",
+      "random/glass3"
+    ]
+  }
+}
