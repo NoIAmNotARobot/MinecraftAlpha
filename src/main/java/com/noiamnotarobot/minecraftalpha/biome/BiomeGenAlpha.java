@@ -4,7 +4,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenAlpha extends BiomeGenBase {
 
-    public BiomeGenAlpha(int p_i1971_1_) {
-        super(p_i1971_1_);
+    public BiomeGenAlpha(int id) {
+        super(id);
     }
 }

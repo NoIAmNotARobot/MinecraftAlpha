@@ -1,9 +1,11 @@
 package com.noiamnotarobot.minecraftalpha.world;
 
 import net.minecraft.world.WorldProviderSurface;
+import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
 import com.noiamnotarobot.minecraftalpha.Config;
+import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
 import com.noiamnotarobot.minecraftalpha.world.gen.ChunkProviderAlpha;
 
 public class WorldProviderAlpha extends WorldProviderSurface {
@@ -36,12 +38,31 @@ public class WorldProviderAlpha extends WorldProviderSurface {
         return "Leaving Minecraft Alpha 1.1.2_01";
     }
 
-    public ChunkProviderAlpha getChunkProvider() {
-        return chunkProvider;
+    @Override
+    public long getSeed() {
+        if (Config.customSeed == 0) return super.getSeed();
+        else return Config.customSeed;
+    }
+
+    @Override
+    protected void registerWorldChunkManager() {
+        this.worldChunkMgr = new WorldChunkManagerHell(MinecraftAlpha.biomeAlpha, 0.0F);
+        this.dimensionId = Config.dimensionID;
+    }
+
+    @Override
+    public boolean canRespawnHere() {
+        return worldObj.getWorldInfo()
+            .isInitialized();
     }
 
     @Override
     public IChunkProvider createChunkGenerator() {
-        return new ChunkProviderAlpha(worldObj, worldObj.getSeed());
+        if (this.chunkProvider == null) {
+            this.chunkProvider = new ChunkProviderAlpha(worldObj, worldObj.getSeed());
+            return this.chunkProvider;
+        } else {
+            return new ChunkProviderAlpha(worldObj, worldObj.getSeed());
+        }
     }
 }

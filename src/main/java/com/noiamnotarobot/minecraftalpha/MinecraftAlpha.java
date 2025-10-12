@@ -2,11 +2,15 @@ package com.noiamnotarobot.minecraftalpha;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.noiamnotarobot.minecraftalpha.biome.BiomeGenAlpha;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 import com.noiamnotarobot.minecraftalpha.world.WorldProviderAlpha;
 
@@ -37,6 +41,9 @@ public class MinecraftAlpha {
             return Item.getItemFromBlock(AlphaBlock.grass);
         }
     };
+    // Note: This biome should not be allowed to generate outside the Minecraft Alpha dimension, as doing so will cause
+    // undocumented behavior.
+    public static BiomeGenBase biomeAlpha;
 
     @SidedProxy(
         clientSide = "com.noiamnotarobot.minecraftalpha.ClientProxy",
@@ -44,12 +51,15 @@ public class MinecraftAlpha {
     public static CommonProxy proxy;
 
     @Mod.EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
+    // preInit "Run before anything else. Read your config, create blocks, items, etc., and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
         MinecraftAlpha.LOG.info("I am MinecraftAlpha, mod version " + Tags.VERSION + ".");
+
+        biomeAlpha = new BiomeGenAlpha(Config.biomeID).setBiomeName("Minecraft Alpha 1.1.2_01")
+            .setTemperatureRainfall(1.0F, 0.0F);
 
         AlphaBlock.preInit();
 
@@ -59,6 +69,9 @@ public class MinecraftAlpha {
     @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
+        BiomeDictionary.registerBiomeType(biomeAlpha, BiomeDictionary.Type.PLAINS);
+        BiomeManager.addSpawnBiome(biomeAlpha);
+
         DimensionManager.registerProviderType(Config.dimensionProviderID, WorldProviderAlpha.class, false);
 
         proxy.init(event);
@@ -73,6 +86,7 @@ public class MinecraftAlpha {
             throw new RuntimeException(
                 "The dimension id {} is already in use by another mod, please pick another id for MinecraftAlpha.");
         }
+
         proxy.postInit(event);
     }
 

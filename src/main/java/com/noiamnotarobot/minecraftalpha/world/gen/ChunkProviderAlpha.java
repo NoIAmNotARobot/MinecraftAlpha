@@ -332,10 +332,10 @@ public class ChunkProviderAlpha implements IChunkProvider {
     public Chunk provideChunk(int chunkX, int chunkZ) {
         this.rand.setSeed((long) chunkX * 341873128712L + (long) chunkZ * 132897987541L);
         Block[] blocks = new Block[-Short.MIN_VALUE];
-        Chunk chunk = new Chunk(this.worldObj, blocks, chunkX, chunkZ);
         this.generateTerrain(chunkX, chunkZ, blocks);
         this.replaceSurfaceBlocks(chunkX, chunkZ, blocks);
         this.caveGenerator.generate(this, this.worldObj, chunkX, chunkZ, blocks);
+        Chunk chunk = new Chunk(this.worldObj, blocks, chunkX, chunkZ);
         chunk.generateSkylightMap();
         return chunk;
     }
