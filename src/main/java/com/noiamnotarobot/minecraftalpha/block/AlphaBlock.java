@@ -66,8 +66,7 @@ public class AlphaBlock extends Block {
         .setStepSound(soundTypeGrass);
     public static final AlphaBlock sponge = (AlphaBlock) new AlphaBlock(Material.sponge, "sponge").setHardness(0.6F)
         .setStepSound(soundTypeGrass);
-    public static final AlphaBlock glass = (AlphaBlock) new AlphaBlockGlass(Material.glass, "glass", false)
-        .setHardness(0.3F)
+    public static final AlphaBlock glass = (AlphaBlock) new AlphaBlockGlass("glass", false).setHardness(0.3F)
         .setStepSound(soundGlassFootstep);
     public static final AlphaBlock clothRed = null;
     public static final AlphaBlock clothOrange = null;

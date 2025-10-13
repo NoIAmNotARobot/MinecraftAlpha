@@ -11,9 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class AlphaBlockLog extends AlphaBlock {
 
     @SideOnly(Side.CLIENT)
-    private IIcon topIcon;
-    @SideOnly(Side.CLIENT)
-    private IIcon bottomIcon;
+    private IIcon endIcon;
 
     public AlphaBlockLog() {
         super(Material.wood, "wood");
@@ -21,7 +19,7 @@ public class AlphaBlockLog extends AlphaBlock {
 
     @Override
     public IIcon getIcon(int side, int meta) {
-        return side == 1 ? this.topIcon : (side == 0 ? this.bottomIcon : this.blockIcon);
+        return side == 1 ? this.endIcon : (side == 0 ? this.endIcon : this.blockIcon);
     }
 
     @Override
@@ -32,7 +30,6 @@ public class AlphaBlockLog extends AlphaBlock {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg) {
         this.blockIcon = reg.registerIcon(this.getTextureName() + "_side");
-        this.topIcon = reg.registerIcon(this.getTextureName() + "_top");
-        this.bottomIcon = reg.registerIcon(this.getTextureName() + "_bottom");
+        this.endIcon = reg.registerIcon(this.getTextureName() + "_end");
     }
 }

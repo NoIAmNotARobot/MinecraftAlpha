@@ -38,7 +38,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
     private double[] sandNoise = new double[256];
     private double[] gravelNoise = new double[256];
     private double[] stoneNoise = new double[256];
-    private MapGenBase caveGenerator = new MapGenCaves();
+    private AlphaMapGenBase caveGenerator = new AlphaMapGenCaves();
     double[] noise3;
     double[] noise1;
     double[] noise2;
@@ -374,42 +374,42 @@ public class ChunkProviderAlpha implements IChunkProvider {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(128);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenClay(32)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenClay(32)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         for (var12 = 0; var12 < 20; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(128);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.dirt, 32)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.dirt, 32)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         for (var12 = 0; var12 < 10; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(128);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.gravel, 32)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.gravel, 32)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         for (var12 = 0; var12 < 20; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(128);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.oreCoal, 16)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.oreCoal, 16)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         for (var12 = 0; var12 < 20; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(64);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.oreIron, 8)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.oreIron, 8)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         for (var12 = 0; var12 < 2; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(32);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.oreGold, 8)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.oreGold, 8)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         /*
@@ -425,7 +425,8 @@ public class ChunkProviderAlpha implements IChunkProvider {
             var13 = var4 + this.rand.nextInt(16);
             var14 = this.rand.nextInt(16);
             var15 = var5 + this.rand.nextInt(16);
-            (new WorldGenMinable(AlphaBlock.oreDiamond, 7)).generate(this.worldObj, this.rand, var13, var14, var15);
+            (new AlphaWorldGenMinable(AlphaBlock.oreDiamond, 7))
+                .generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
         var10 = 0.5D;
@@ -440,51 +441,47 @@ public class ChunkProviderAlpha implements IChunkProvider {
             ++var12;
         }
 
-        /*
-         * Object var18 = new WorldGenTrees();
-         * if(this.rand.nextInt(10) == 0) {
-         * var18 = new WorldGenBigTree();
-         * }
-         */
+        AlphaWorldGenerator var18 = new AlphaWorldGenTrees();
+
+        if (this.rand.nextInt(10) == 0) {
+            var18 = new AlphaWorldGenBigTree();
+        }
 
         int var16;
-        /*
-         * for(var14 = 0; var14 < var12; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = var5 + this.rand.nextInt(16) + 8;
-         * ((WorldGenerator)var18).setScale(1.0D, 1.0D, 1.0D);
-         * ((WorldGenerator)var18).generate(this.worldObj, this.rand, var15, this.worldObj.getHeightValue(var15, var16),
-         * var16);
-         * }
-         */
+        for (var14 = 0; var14 < var12; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = var5 + this.rand.nextInt(16) + 8;
+            var18.setScale(1.0D, 1.0D, 1.0D);
+            var18.generate(this.worldObj, this.rand, var15, this.worldObj.getHeightValue(var15, var16), var16);
+        }
 
         int var17;
-        /*
-         * for(var14 = 0; var14 < 2; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = this.rand.nextInt(128);
-         * var17 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenFlowers(Block.plantYellow.blockID)).generate(this.worldObj, this.rand, var15, var16, var17);
-         * }
-         * if(this.rand.nextInt(2) == 0) {
-         * var14 = var4 + this.rand.nextInt(16) + 8;
-         * var15 = this.rand.nextInt(128);
-         * var16 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenFlowers(Block.plantRed.blockID)).generate(this.worldObj, this.rand, var14, var15, var16);
-         * }
-         * if(this.rand.nextInt(4) == 0) {
-         * var14 = var4 + this.rand.nextInt(16) + 8;
-         * var15 = this.rand.nextInt(128);
-         * var16 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenFlowers(Block.mushroomBrown.blockID)).generate(this.worldObj, this.rand, var14, var15, var16);
-         * }
-         * if(this.rand.nextInt(8) == 0) {
-         * var14 = var4 + this.rand.nextInt(16) + 8;
-         * var15 = this.rand.nextInt(128);
-         * var16 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenFlowers(Block.mushroomRed.blockID)).generate(this.worldObj, this.rand, var14, var15, var16);
-         * }
-         */
+
+        for (var14 = 0; var14 < 2; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = this.rand.nextInt(128);
+            var17 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenFlowers(AlphaBlock.plantYellow)).generate(this.worldObj, this.rand, var15, var16, var17);
+        }
+        if (this.rand.nextInt(2) == 0) {
+            var14 = var4 + this.rand.nextInt(16) + 8;
+            var15 = this.rand.nextInt(128);
+            var16 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenFlowers(AlphaBlock.plantRed)).generate(this.worldObj, this.rand, var14, var15, var16);
+        }
+        if (this.rand.nextInt(4) == 0) {
+            var14 = var4 + this.rand.nextInt(16) + 8;
+            var15 = this.rand.nextInt(128);
+            var16 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenFlowers(AlphaBlock.mushroomBrown))
+                .generate(this.worldObj, this.rand, var14, var15, var16);
+        }
+        if (this.rand.nextInt(8) == 0) {
+            var14 = var4 + this.rand.nextInt(16) + 8;
+            var15 = this.rand.nextInt(128);
+            var16 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenFlowers(AlphaBlock.mushroomRed)).generate(this.worldObj, this.rand, var14, var15, var16);
+        }
 
         /*
          * for(var14 = 0; var14 < 10; ++var14) {

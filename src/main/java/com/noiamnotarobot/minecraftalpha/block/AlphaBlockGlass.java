@@ -6,8 +6,8 @@ import net.minecraft.block.material.Material;
 
 public class AlphaBlockGlass extends AlphaBlockBreakable {
 
-    public AlphaBlockGlass(Material materialIn, String name, boolean localFlag) {
-        super(materialIn, name, localFlag);
+    public AlphaBlockGlass(String name, boolean localFlag) {
+        super(Material.glass, name, localFlag);
     }
 
     @Override

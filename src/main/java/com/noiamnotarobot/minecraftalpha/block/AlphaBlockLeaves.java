@@ -16,6 +16,7 @@ public class AlphaBlockLeaves extends AlphaBlockLeavesBase {
 
     public AlphaBlockLeaves() {
         super(Material.leaves, "leaves", false);
+        setTickRandomly(true);
     }
 
     @Override
@@ -112,10 +113,6 @@ public class AlphaBlockLeaves extends AlphaBlockLeavesBase {
      * return Item.getItemFromBlock(AlphaBlock.sapling);
      * }
      */
-
-    public boolean isOpaqueCube() {
-        return !this.graphicsLevel;
-    }
 
     public void setGraphicsLevel(boolean var1) {
         this.graphicsLevel = var1;

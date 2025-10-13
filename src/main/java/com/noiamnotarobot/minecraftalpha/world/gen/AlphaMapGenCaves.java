@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
-public class MapGenCaves extends MapGenBase {
+public class AlphaMapGenCaves extends AlphaMapGenBase {
 
     protected void generateLargeCaveNode(int var1, int var2, Block[] var3, double var4, double var6, double var8) {
         this.generateCaveNode(

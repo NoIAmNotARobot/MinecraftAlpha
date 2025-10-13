@@ -3,6 +3,7 @@ package com.noiamnotarobot.minecraftalpha.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class AlphaBlockLeavesBase extends AlphaBlock {
 
@@ -21,6 +22,7 @@ public class AlphaBlockLeavesBase extends AlphaBlock {
     @Override
     public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
         Block var6 = world.getBlock(x, y, z);
-        return (this.graphicsLevel || var6 != this) && super.shouldSideBeRendered(world, x, y, z, side);
+        // return (this.graphicsLevel || var6 != this) && super.shouldSideBeRendered(world, x, y, z, side);
+        return !world.isSideSolid(x, y, z, ForgeDirection.getOrientation(side), false);
     }
 }

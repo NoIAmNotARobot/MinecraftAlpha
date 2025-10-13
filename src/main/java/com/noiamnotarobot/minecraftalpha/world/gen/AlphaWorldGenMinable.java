@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
-public class WorldGenMinable extends WorldGenerator {
+public class AlphaWorldGenMinable extends AlphaWorldGenerator {
 
     private final Block minableBlock;
     private final int numberOfBlocks;
 
-    public WorldGenMinable(Block var1, int var2) {
+    public AlphaWorldGenMinable(Block var1, int var2) {
         this.minableBlock = var1;
         this.numberOfBlocks = var2;
     }

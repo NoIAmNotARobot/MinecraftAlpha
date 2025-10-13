@@ -8,11 +8,11 @@ import net.minecraft.world.World;
 
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
-public class WorldGenClay extends WorldGenerator {
+public class AlphaWorldGenClay extends AlphaWorldGenerator {
 
     private final int numberOfBlocks;
 
-    public WorldGenClay(int var1) {
+    public AlphaWorldGenClay(int var1) {
         this.numberOfBlocks = var1;
     }
 
