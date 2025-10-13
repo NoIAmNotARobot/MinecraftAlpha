@@ -58,8 +58,11 @@ public class AlphaBlock extends Block {
     public static final Block oreCoal = new AlphaBlockOre("oreCoal").setHardness(3.0F)
         .setResistance(5.0F)
         .setStepSound(soundStoneFootstep);
-    // wood
-    // leaves
+    public static final Block wood = new AlphaBlockLog().setHardness(2.0F)
+        .setStepSound(soundWoodFootstep);
+    public static final Block leaves = new AlphaBlockLeaves().setHardness(0.2F)
+        .setLightOpacity(1)
+        .setStepSound(soundTypeGrass);
     public static final Block sponge = new AlphaBlock(Material.sponge, "sponge").setHardness(0.6F)
         .setStepSound(soundTypeGrass);
     public static final Block glass = new AlphaBlockGlass(Material.glass, "glass", false).setHardness(0.3F)
@@ -93,13 +96,17 @@ public class AlphaBlock extends Block {
         .setStepSound(soundMetalFootstep);
     // stairDouble
     // stairSingle
-    public static final Block brick = new AlphaBlock(Material.rock, "brick").setHardness(2.0F)
+    public static final Block bricks = new AlphaBlock(Material.rock, "bricks").setHardness(2.0F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
     // tnt
     // bookshelf
-    // cobblestoneMossy
-    // obsidian
+    public static final Block cobblestoneMossy = new AlphaBlock(Material.rock, "cobblestoneMossy").setHardness(2.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final Block obsidian = new AlphaBlock(Material.rock, "obsidian").setHardness(10.0F)
+        .setResistance(2000.0F)
+        .setStepSound(soundStoneFootstep);
     // torch
     // fire
     // mobSpawner
@@ -112,7 +119,8 @@ public class AlphaBlock extends Block {
     public static final Block blockDiamond = new AlphaBlockOreBlock("blockDiamond").setHardness(5.0F)
         .setResistance(10.0F)
         .setStepSound(soundMetalFootstep);
-    // workbench
+    public static final Block workbench = new AlphaBlockWorkbench().setHardness(2.5F)
+        .setStepSound(soundWoodFootstep);
     // crops
     // tilledField
     // stoneOvenIdle
@@ -163,14 +171,19 @@ public class AlphaBlock extends Block {
         blocksList.add(oreGold);
         blocksList.add(oreIron);
         blocksList.add(oreCoal);
+        blocksList.add(wood);
+        blocksList.add(leaves);
         blocksList.add(sponge);
         blocksList.add(glass);
         blocksList.add(cloth);
         blocksList.add(blockGold);
         blocksList.add(blockIron);
-        blocksList.add(brick);
+        blocksList.add(bricks);
+        blocksList.add(cobblestoneMossy);
+        blocksList.add(obsidian);
         blocksList.add(oreDiamond);
         blocksList.add(blockDiamond);
+        blocksList.add(workbench);
 
         MinecraftAlpha.LOG.info("Registering blocks...");
         int blocksRegistered = 0;

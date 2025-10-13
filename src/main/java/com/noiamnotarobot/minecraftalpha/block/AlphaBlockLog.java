@@ -3,24 +3,30 @@ package com.noiamnotarobot.minecraftalpha.block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class AlphaBlockOreBlock extends AlphaBlock {
+public class AlphaBlockLog extends AlphaBlock {
 
     @SideOnly(Side.CLIENT)
     private IIcon topIcon;
     @SideOnly(Side.CLIENT)
     private IIcon bottomIcon;
 
-    public AlphaBlockOreBlock(String name) {
-        super(Material.iron, name);
+    public AlphaBlockLog() {
+        super(Material.wood, "wood");
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
     public IIcon getIcon(int side, int meta) {
         return side == 1 ? this.topIcon : (side == 0 ? this.bottomIcon : this.blockIcon);
+    }
+
+    @Override
+    public IIcon getIcon(IBlockAccess worldIn, int x, int y, int z, int side) {
+        return getIcon(side, 0);
     }
 
     @SideOnly(Side.CLIENT)

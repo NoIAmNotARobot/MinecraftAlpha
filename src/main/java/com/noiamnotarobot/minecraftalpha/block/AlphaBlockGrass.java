@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
@@ -30,19 +29,6 @@ public class AlphaBlockGrass extends AlphaBlock {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         return side == 1 ? this.topIcon : (side == 0 ? Blocks.dirt.getBlockTextureFromSide(side) : this.blockIcon);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess worldIn, int x, int y, int z, int side) {
-        if (side == 1) {
-            return this.topIcon;
-        } else if (side == 0) {
-            return Blocks.dirt.getBlockTextureFromSide(side);
-        } else {
-            Material material = worldIn.getBlock(x, y + 1, z)
-                .getMaterial();
-            return material != Material.snow && material != Material.craftedSnow ? this.blockIcon : this.snowIcon;
-        }
     }
 
     @Override
