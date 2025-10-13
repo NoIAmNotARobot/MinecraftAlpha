@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -52,7 +53,7 @@ public class AlphaItem extends Item {
     // hoeIron
     // hoeDiamond
     // hoeGold
-    // seeds
+    public static Item seeds = new AlphaItemSeeds(AlphaBlock.crops);
     public static Item wheat = new AlphaItem("wheat");
     public static Item bread = new AlphaItemFood("bread", 5);
     // helmetLeather
@@ -122,6 +123,7 @@ public class AlphaItem extends Item {
     }
 
     public static void preInit() {
+        itemsList.add(appleRed);
         itemsList.add(arrow);
         itemsList.add(coal);
         itemsList.add(diamond);
@@ -133,6 +135,7 @@ public class AlphaItem extends Item {
         itemsList.add(silk);
         itemsList.add(feather);
         itemsList.add(gunpowder);
+        itemsList.add(seeds);
         itemsList.add(wheat);
         itemsList.add(bread);
         itemsList.add(flint);

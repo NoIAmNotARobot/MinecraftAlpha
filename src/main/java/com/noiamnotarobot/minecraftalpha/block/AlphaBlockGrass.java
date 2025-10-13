@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -28,7 +27,7 @@ public class AlphaBlockGrass extends AlphaBlock {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return side == 1 ? this.topIcon : (side == 0 ? Blocks.dirt.getBlockTextureFromSide(side) : this.blockIcon);
+        return side == 1 ? this.topIcon : (side == 0 ? AlphaBlock.dirt.getBlockTextureFromSide(side) : this.blockIcon);
     }
 
     @Override
