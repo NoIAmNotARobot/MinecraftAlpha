@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -41,13 +40,7 @@ public class AlphaBlockFlower extends AlphaBlock {
 
     protected final void checkFlowerChange(World var1, int var2, int var3, int var4) {
         if (!this.canBlockStay(var1, var2, var3, var4)) {
-            int meta = var1.getBlockMetadata(var2, var3, var4);
-            this.dropBlockAsItem(
-                var1,
-                var2,
-                var3,
-                var4,
-                new ItemStack(getItemDropped(meta, var1.rand, 0), quantityDropped(meta, 0, var1.rand)));
+            this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
             var1.setBlock(var2, var3, var4, Blocks.air);
         }
     }

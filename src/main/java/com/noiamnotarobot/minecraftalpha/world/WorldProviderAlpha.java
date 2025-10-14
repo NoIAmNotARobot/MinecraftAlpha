@@ -9,6 +9,7 @@ import com.noiamnotarobot.minecraftalpha.Config;
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
 import com.noiamnotarobot.minecraftalpha.world.gen.ChunkProviderAlpha;
 
+// TODO: Fix winter mode, as it currently shows rain particles when its actually snowing.
 public class WorldProviderAlpha extends WorldProviderSurface {
 
     public final String saveFolder;
@@ -68,12 +69,24 @@ public class WorldProviderAlpha extends WorldProviderSurface {
     }
 
     @Override
-    public boolean canDoRainSnowIce(Chunk chunk) {
+    public boolean canDoLightning(Chunk chunk) {
         return false;
     }
 
     @Override
-    public boolean canDoLightning(Chunk chunk) {
-        return false;
+    public void calculateInitialWeather() {
+        if (Config.snowCovered) {
+            worldObj.setRainStrength(1.0F);
+        } else {
+            worldObj.setRainStrength(0.0F);
+        }
+    }
+
+    @Override
+    public void updateWeather() {}
+
+    @Override
+    public boolean canSnowAt(int x, int y, int z, boolean checkLight) {
+        return Config.snowCovered;
     }
 }

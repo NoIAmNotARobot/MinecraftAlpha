@@ -10,6 +10,7 @@ public class Config {
     public static int dimensionProviderID = 98;
     public static int biomeID = 242;
     public static long customSeed = 0;
+    public static boolean snowCovered = false;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -42,6 +43,11 @@ public class Config {
             Integer.MIN_VALUE,
             Integer.MAX_VALUE,
             "Seed for the custom dimension, which overrides world seed. When at zero, defaults to the world seed.");
+        snowCovered = configuration.getBoolean(
+            "snowCovered",
+            "dimension",
+            snowCovered,
+            "Changes whether or not \"Winter Mode\" will be enabled for the dimension. (Covers new chunks with snow and ice, and causes an eternal snowstorm.)");
 
         if (configuration.hasChanged()) {
             configuration.save();

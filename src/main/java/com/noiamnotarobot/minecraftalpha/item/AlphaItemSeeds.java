@@ -25,7 +25,7 @@ public class AlphaItemSeeds extends AlphaItem {
             Block var11 = var3.getBlock(var4, var5, var6);
             if (var11 == AlphaBlock.tilledField) {
                 var3.setBlock(var4, var5 + 1, var6, this.blockType, 0, 3);
-                --var1.stackSize;
+                if (!var2.capabilities.isCreativeMode) --var1.stackSize;
                 return true;
             } else {
                 return false;

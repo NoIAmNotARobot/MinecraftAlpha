@@ -61,5 +61,11 @@
       "random/glass2",
       "random/glass3"
     ]
+  },
+  "random.bow": {
+    "category": "player",
+    "sounds": [
+      "random/bow"
+    ]
   }
 }

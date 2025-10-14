@@ -1,7 +1,9 @@
 package com.noiamnotarobot.minecraftalpha.item;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
@@ -13,18 +15,19 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class AlphaItem extends Item {
 
-    public static ArrayList<Item> itemsList = new ArrayList<>();
+    public static Random rand = new Random();
+    public static ArrayList<AlphaItem> itemsList = new ArrayList<>();
     // shovel
     // pickaxeIron
     // axeIron
-    // striker
-    public static Item appleRed = new AlphaItemFood("appleRed", 4);
+    public static AlphaItem striker = new AlphaItemFlintAndSteel();
+    public static AlphaItem appleRed = new AlphaItemFood("appleRed", 4);
     // bow
-    public static Item arrow = new AlphaItem("arrow");
-    public static Item coal = new AlphaItem("coal");
-    public static Item diamond = new AlphaItem("diamond");
-    public static Item ingotIron = new AlphaItem("ingotIron");
-    public static Item ingotGold = new AlphaItem("ingotGold");
+    public static AlphaItem arrow = new AlphaItem("arrow");
+    public static AlphaItem coal = new AlphaItem("coal");
+    public static AlphaItem diamond = new AlphaItem("diamond");
+    public static AlphaItem ingotIron = new AlphaItem("ingotIron");
+    public static AlphaItem ingotGold = new AlphaItem("ingotGold");
     // swordIron
     // swordWood
     // shovelWood
@@ -38,24 +41,24 @@ public class AlphaItem extends Item {
     // shovelDiamond
     // pickaxeDiamond
     // axeDiamond
-    public static Item stick = new AlphaItem("stick");
-    public static Item bowlEmpty = new AlphaItem("bowlEmpty");
-    public static Item bowlSoup = new AlphaItemFood("bowlSoup", 10);
+    public static AlphaItem stick = new AlphaItem("stick");
+    public static AlphaItem bowlEmpty = new AlphaItem("bowlEmpty");
+    public static AlphaItem bowlSoup = new AlphaItemFood("bowlSoup", 10);
     // swordGold
     // shovelGold
     // pickaxeGold
     // axeGold
-    public static Item silk = new AlphaItem("silk");
-    public static Item feather = new AlphaItem("feather");
-    public static Item gunpowder = new AlphaItem("gunpowder");
+    public static AlphaItem silk = new AlphaItem("silk");
+    public static AlphaItem feather = new AlphaItem("feather");
+    public static AlphaItem gunpowder = new AlphaItem("gunpowder");
     // hoeWood
     // hoeStone
     // hoeIron
     // hoeDiamond
     // hoeGold
-    public static Item seeds = new AlphaItemSeeds(AlphaBlock.crops);
-    public static Item wheat = new AlphaItem("wheat");
-    public static Item bread = new AlphaItemFood("bread", 5);
+    public static AlphaItem seeds = new AlphaItemSeeds(AlphaBlock.crops);
+    public static AlphaItem wheat = new AlphaItem("wheat");
+    public static AlphaItem bread = new AlphaItemFood("bread", 5);
     // helmetLeather
     // plateLeather
     // legsLeather
@@ -76,37 +79,37 @@ public class AlphaItem extends Item {
     // plateGold
     // legsGold
     // bootsGold
-    public static Item flint = new AlphaItem("flint");
-    public static Item porkRaw = new AlphaItemFood("porkRaw", 3);
-    public static Item porkCooked = new AlphaItemFood("porkCooked", 8);
+    public static AlphaItem flint = new AlphaItem("flint");
+    public static AlphaItem porkRaw = new AlphaItemFood("porkRaw", 3);
+    public static AlphaItem porkCooked = new AlphaItemFood("porkCooked", 8);
     // painting
-    public static Item appleGold = new AlphaItemFood("appleGold", 42);
+    public static AlphaItem appleGold = new AlphaItemFood("appleGold", 42);
     // sign
     // doorWood
-    // bucketEmpty
+    public static Item bucketEmpty = Items.bucket;
     // bucketWater
     // bucketLava
     // minecartEmpty
-    // saddle
+    public static AlphaItem saddle = new AlphaItemSaddle();
     // doorIron
-    // redstone
-    // snowball
+    public static AlphaItem redstone = new AlphaItemRedstone();
+    public static AlphaItem snowball = new AlphaItemSnowball();
     // boat
-    public static Item leather = new AlphaItem("leather");
+    public static AlphaItem leather = new AlphaItem("leather");
     // bucketMilk
-    public static Item brick = new AlphaItem("brick");
-    public static Item clay = new AlphaItem("clay");
-    // reed
-    public static Item paper = new AlphaItem("paper");
-    public static Item book = new AlphaItem("book");
-    public static Item slimeBall = new AlphaItem("slimeBall");
+    public static AlphaItem brick = new AlphaItem("brick");
+    public static AlphaItem clay = new AlphaItem("clay");
+    public static AlphaItem reed = new AlphaItemReed(AlphaBlock.reed);
+    public static AlphaItem paper = new AlphaItem("paper");
+    public static AlphaItem book = new AlphaItem("book");
+    public static AlphaItem slimeBall = new AlphaItem("slimeBall");
     // minecartBox
     // minecartEngine
     // egg
     // compass
     // fishingRod
-    // record13
-    // recordCat
+    public static Item record13 = Items.record_13;
+    public static Item recordCat = Items.record_cat;
 
     protected String unlocalizedName;
 
@@ -123,6 +126,7 @@ public class AlphaItem extends Item {
     }
 
     public static void preInit() {
+        itemsList.add(striker);
         itemsList.add(appleRed);
         itemsList.add(arrow);
         itemsList.add(coal);
@@ -142,16 +146,20 @@ public class AlphaItem extends Item {
         itemsList.add(porkRaw);
         itemsList.add(porkCooked);
         itemsList.add(appleGold);
+        itemsList.add(saddle);
+        itemsList.add(redstone);
+        itemsList.add(snowball);
         itemsList.add(leather);
         itemsList.add(brick);
         itemsList.add(clay);
+        itemsList.add(reed);
         itemsList.add(paper);
         itemsList.add(book);
         itemsList.add(slimeBall);
 
         MinecraftAlpha.LOG.info("Registering items...");
         int itemsRegistered = 0;
-        for (Item item : itemsList) {
+        for (AlphaItem item : itemsList) {
             GameRegistry.registerItem(item, item.getUnlocalizedName());
             itemsRegistered++;
         }

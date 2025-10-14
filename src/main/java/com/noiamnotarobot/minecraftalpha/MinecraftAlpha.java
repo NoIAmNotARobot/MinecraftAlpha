@@ -12,7 +12,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.noiamnotarobot.minecraftalpha.biome.BiomeGenAlpha;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
+import com.noiamnotarobot.minecraftalpha.entity.AlphaEntity;
 import com.noiamnotarobot.minecraftalpha.item.AlphaItem;
+import com.noiamnotarobot.minecraftalpha.recipes.AlphaRecipes;
 import com.noiamnotarobot.minecraftalpha.world.WorldProviderAlpha;
 
 import cpw.mods.fml.common.Mod;
@@ -64,6 +66,7 @@ public class MinecraftAlpha {
 
         AlphaBlock.preInit();
         AlphaItem.preInit();
+        AlphaEntity.preInit();
 
         proxy.preInit(event);
     }
@@ -71,6 +74,8 @@ public class MinecraftAlpha {
     @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
+        AlphaRecipes.registerRecipes();
+
         BiomeDictionary.registerBiomeType(biomeAlpha, BiomeDictionary.Type.PLAINS);
         BiomeManager.addSpawnBiome(biomeAlpha);
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
@@ -14,6 +15,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 
+import com.noiamnotarobot.minecraftalpha.Config;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlockSand;
 import com.noiamnotarobot.minecraftalpha.world.gen.noise.NoiseGeneratorOctaves;
@@ -60,7 +62,6 @@ public class ChunkProviderAlpha implements IChunkProvider {
     }
 
     public void generateTerrain(int chunkX, int chunkZ, Block[] chunk) {
-        boolean snowCovered = false;
         byte var4 = 4;
         byte var5 = 64;
         int var6 = var4 + 1;
@@ -89,7 +90,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
                         double var39 = (var20 - var16) * var31;
 
                         for (int var41 = 0; var41 < 4; ++var41) {
-                            int var42 = var41 + i * 4 << 11 | 0 + var10 * 4 << 7 | var11 * 8 + var30;
+                            int var42 = var41 + i * 4 << 11 | var10 * 4 << 7 | var11 * 8 + var30;
                             short var43 = 128;
                             double var44 = 0.25D;
                             double var46 = var33;
@@ -98,8 +99,8 @@ public class ChunkProviderAlpha implements IChunkProvider {
                             for (int var50 = 0; var50 < 4; ++var50) {
                                 Block var51 = Blocks.air;
                                 if (var11 * 8 + var30 < var5) {
-                                    if (snowCovered && var11 * 8 + var30 >= var5 - 1) {
-                                        var51 = Blocks.ice;
+                                    if (Config.snowCovered && var11 * 8 + var30 >= var5 - 1) {
+                                        var51 = AlphaBlock.ice;
                                     } else {
                                         var51 = Blocks.water;
                                     }
@@ -361,14 +362,13 @@ public class ChunkProviderAlpha implements IChunkProvider {
         int var13;
         int var14;
         int var15;
-        /*
-         * for(var12 = 0; var12 < 8; ++var12) {
-         * var13 = var4 + this.rand.nextInt(16) + 8;
-         * var14 = this.rand.nextInt(128);
-         * var15 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenDungeons()).generate(this.worldObj, this.rand, var13, var14, var15);
-         * }
-         */
+
+        for (var12 = 0; var12 < 8; ++var12) {
+            var13 = var4 + this.rand.nextInt(16) + 8;
+            var14 = this.rand.nextInt(128);
+            var15 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenDungeons()).generate(this.worldObj, this.rand, var13, var14, var15);
+        }
 
         for (var12 = 0; var12 < 10; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
@@ -412,14 +412,13 @@ public class ChunkProviderAlpha implements IChunkProvider {
             (new AlphaWorldGenMinable(AlphaBlock.oreGold, 8)).generate(this.worldObj, this.rand, var13, var14, var15);
         }
 
-        /*
-         * for(var12 = 0; var12 < 8; ++var12) {
-         * var13 = var4 + this.rand.nextInt(16);
-         * var14 = this.rand.nextInt(16);
-         * var15 = var5 + this.rand.nextInt(16);
-         * (new WorldGenMinable(AlphaBlock.oreRedstone, 7)).generate(this.worldObj, this.rand, var13, var14, var15);
-         * }
-         */
+        for (var12 = 0; var12 < 8; ++var12) {
+            var13 = var4 + this.rand.nextInt(16);
+            var14 = this.rand.nextInt(16);
+            var15 = var5 + this.rand.nextInt(16);
+            (new AlphaWorldGenMinable(AlphaBlock.oreRedstone, 7))
+                .generate(this.worldObj, this.rand, var13, var14, var15);
+        }
 
         for (var12 = 0; var12 < 1; ++var12) {
             var13 = var4 + this.rand.nextInt(16);
@@ -483,42 +482,47 @@ public class ChunkProviderAlpha implements IChunkProvider {
             (new AlphaWorldGenFlowers(AlphaBlock.mushroomRed)).generate(this.worldObj, this.rand, var14, var15, var16);
         }
 
-        /*
-         * for(var14 = 0; var14 < 10; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = this.rand.nextInt(128);
-         * var17 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenReed()).generate(this.worldObj, this.rand, var15, var16, var17);
-         * }
-         * for(var14 = 0; var14 < 1; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = this.rand.nextInt(128);
-         * var17 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenCactus()).generate(this.worldObj, this.rand, var15, var16, var17);
-         * }
-         * for(var14 = 0; var14 < 50; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = this.rand.nextInt(this.rand.nextInt(120) + 8);
-         * var17 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenLiquids(Block.waterMoving.blockID)).generate(this.worldObj, this.rand, var15, var16, var17);
-         * }
-         * for(var14 = 0; var14 < 20; ++var14) {
-         * var15 = var4 + this.rand.nextInt(16) + 8;
-         * var16 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
-         * var17 = var5 + this.rand.nextInt(16) + 8;
-         * (new WorldGenLiquids(Block.lavaMoving.blockID)).generate(this.worldObj, this.rand, var15, var16, var17);
-         * }
-         * for(var14 = var4 + 8 + 0; var14 < var4 + 8 + 16; ++var14) {
-         * for(var15 = var5 + 8 + 0; var15 < var5 + 8 + 16; ++var15) {
-         * var16 = this.worldObj.getTopSolidOrLiquidBlock(var14, var15);
-         * if(this.worldObj.snowCovered && var16 > 0 && var16 < 128 && this.worldObj.getBlockId(var14, var16, var15) ==
-         * 0 && this.worldObj.getBlockMaterial(var14, var16 - 1, var15).getIsSolid() &&
-         * this.worldObj.getBlockMaterial(var14, var16 - 1, var15) != Material.ice) {
-         * this.worldObj.setBlockWithNotify(var14, var16, var15, Block.snow.blockID);
-         * }
-         * }
-         * }
-         */
+        for (var14 = 0; var14 < 10; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = this.rand.nextInt(128);
+            var17 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenReed()).generate(this.worldObj, this.rand, var15, var16, var17);
+        }
+        for (var14 = 0; var14 < 1; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = this.rand.nextInt(128);
+            var17 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenCactus()).generate(this.worldObj, this.rand, var15, var16, var17);
+        }
+
+        for (var14 = 0; var14 < 50; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = this.rand.nextInt(this.rand.nextInt(120) + 8);
+            var17 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenLiquids(Blocks.flowing_water)).generate(this.worldObj, this.rand, var15, var16, var17);
+        }
+        for (var14 = 0; var14 < 20; ++var14) {
+            var15 = var4 + this.rand.nextInt(16) + 8;
+            var16 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
+            var17 = var5 + this.rand.nextInt(16) + 8;
+            (new AlphaWorldGenLiquids(Blocks.flowing_lava)).generate(this.worldObj, this.rand, var15, var16, var17);
+        }
+
+        for (var14 = var4 + 8; var14 < var4 + 8 + 16; ++var14) {
+            for (var15 = var5 + 8; var15 < var5 + 8 + 16; ++var15) {
+                var16 = this.worldObj.getTopSolidOrLiquidBlock(var14, var15);
+                if (Config.snowCovered && var16 > 0
+                    && var16 < 128
+                    && this.worldObj.getBlock(var14, var16, var15) == Blocks.air
+                    && this.worldObj.getBlock(var14, var16 - 1, var15)
+                        .getMaterial()
+                        .isSolid()
+                    && this.worldObj.getBlock(var14, var16 - 1, var15)
+                        .getMaterial() != Material.ice) {
+                    this.worldObj.setBlock(var14, var16, var15, AlphaBlock.snow);
+                }
+            }
+        }
 
         AlphaBlockSand.fallInstantly = false;
     }

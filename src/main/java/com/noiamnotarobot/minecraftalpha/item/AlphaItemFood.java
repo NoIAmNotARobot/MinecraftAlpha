@@ -15,7 +15,7 @@ public class AlphaItemFood extends AlphaItem {
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        stack.stackSize--;
+        if (!player.capabilities.isCreativeMode) stack.stackSize--;
         player.heal(this.healAmount);
         return stack;
     }

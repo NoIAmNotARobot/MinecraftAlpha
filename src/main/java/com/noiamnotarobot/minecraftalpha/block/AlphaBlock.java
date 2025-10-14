@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
 import com.noiamnotarobot.minecraftalpha.block.sound.AlphaStepSound;
@@ -40,7 +41,8 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock planks = (AlphaBlock) (new AlphaBlock(Material.wood, "planks")).setHardness(2.0F)
         .setResistance(5.0F)
         .setStepSound(soundWoodFootstep);
-    // sapling
+    public static final AlphaBlock sapling = (AlphaBlock) new AlphaBlockSapling().setHardness(0.0F)
+        .setStepSound(soundGrassFootstep);
     public static final AlphaBlock bedrock = (AlphaBlock) new AlphaBlock(Material.rock, "bedrock").setHardness(-1.0F)
         .setResistance(6000000.0F)
         .setStepSound(soundStoneFootstep);
@@ -110,7 +112,8 @@ public class AlphaBlock extends Block {
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
     // tnt
-    // bookshelf
+    public static final AlphaBlock bookshelf = (AlphaBlock) new AlphaBlockBookshelf().setHardness(1.5F)
+        .setStepSound(soundWoodFootstep);
     public static final AlphaBlock cobblestoneMossy = (AlphaBlock) new AlphaBlock(Material.rock, "cobblestoneMossy")
         .setHardness(2.0F)
         .setResistance(10.0F)
@@ -120,9 +123,11 @@ public class AlphaBlock extends Block {
         .setStepSound(soundStoneFootstep);
     // torch
     // fire
-    // mobSpawner
+    public static final AlphaBlock mobSpawner = (AlphaBlock) new AlphaBlockMobSpawner().setHardness(5.0F)
+        .setStepSound(soundMetalFootstep);
     // stairCompactWood
-    // chest
+    public static final AlphaBlock chest = (AlphaBlock) new AlphaBlockChest().setHardness(2.5F)
+        .setStepSound(soundWoodFootstep);
     // redstoneWire
     public static final AlphaBlock oreDiamond = (AlphaBlock) new AlphaBlockOre("oreDiamond").setHardness(3.0F)
         .setResistance(5.0F)
@@ -148,18 +153,24 @@ public class AlphaBlock extends Block {
     // pressurePlateStone
     // doorSteel
     // pressurePlateWood
-    // oreRedstone
+    public static final Block oreRedstone = Blocks.redstone_ore;
     // oreRedstoneGlowing
     // torchRedstoneIdle
     // torchRedstoneActive
     // button
-    // snow
-    // ice
-    // blockSnow
-    // cactus
+    public static final AlphaBlock snow = (AlphaBlock) new AlphaBlockSnow().setHardness(0.1F)
+        .setStepSound(soundClothFootstep);
+    public static final AlphaBlock ice = (AlphaBlock) new AlphaBlockIce().setHardness(0.5F)
+        .setLightOpacity(3)
+        .setStepSound(soundGlassFootstep);
+    public static final AlphaBlock blockSnow = (AlphaBlock) new AlphaBlockSnowBlock().setHardness(0.2F)
+        .setStepSound(soundClothFootstep);
+    public static final AlphaBlock cactus = (AlphaBlock) new AlphaBlockCactus().setHardness(0.4F)
+        .setStepSound(soundClothFootstep);
     public static final AlphaBlock blockClay = (AlphaBlock) new AlphaBlockClay().setHardness(0.6F)
         .setStepSound(soundGravelFootstep);
-    // reed
+    public static final AlphaBlock reed = (AlphaBlock) new AlphaBlockReed().setHardness(0.0F)
+        .setStepSound(soundGrassFootstep);
     // jukebox
     // fence
 
@@ -183,6 +194,7 @@ public class AlphaBlock extends Block {
         blocksList.add(dirt);
         blocksList.add(cobblestone);
         blocksList.add(planks);
+        blocksList.add(sapling);
         blocksList.add(bedrock);
         blocksList.add(sand);
         blocksList.add(gravel);
@@ -198,18 +210,25 @@ public class AlphaBlock extends Block {
         blocksList.add(plantRed);
         blocksList.add(mushroomBrown);
         blocksList.add(mushroomRed);
-
         blocksList.add(blockGold);
         blocksList.add(blockIron);
         blocksList.add(brick);
+        blocksList.add(bookshelf);
         blocksList.add(cobblestoneMossy);
         blocksList.add(obsidian);
+        blocksList.add(mobSpawner);
+        blocksList.add(chest);
         blocksList.add(oreDiamond);
         blocksList.add(blockDiamond);
         blocksList.add(workbench);
         blocksList.add(crops);
         blocksList.add(tilledField);
+        blocksList.add(snow);
+        blocksList.add(ice);
+        blocksList.add(blockSnow);
+        blocksList.add(cactus);
         blocksList.add(blockClay);
+        blocksList.add(reed);
 
         MinecraftAlpha.LOG.info("Registering blocks...");
         int blocksRegistered = 0;

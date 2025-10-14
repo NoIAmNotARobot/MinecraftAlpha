@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
@@ -17,8 +18,6 @@ public class AlphaBlockGrass extends AlphaBlock {
     private IIcon topIcon;
     @SideOnly(Side.CLIENT)
     private IIcon snowIcon;
-    @SideOnly(Side.CLIENT)
-    private IIcon overlayIcon;
 
     public AlphaBlockGrass() {
         super(Material.grass, "grass");
@@ -31,6 +30,19 @@ public class AlphaBlockGrass extends AlphaBlock {
     }
 
     @Override
+    public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+        if (side == 1) {
+            return this.topIcon;
+        } else if (side == 0) {
+            return AlphaBlock.dirt.getBlockTextureFromSide(side);
+        } else {
+            Material var6 = world.getBlock(x, y + 1, z)
+                .getMaterial();
+            return var6 != Material.snow && var6 != Material.craftedSnow ? this.blockIcon : this.snowIcon;
+        }
+    }
+
+    @Override
     public Item getItemDropped(int meta, Random random, int fortune) {
         return Item.getItemFromBlock(AlphaBlock.dirt);
     }
@@ -39,8 +51,7 @@ public class AlphaBlockGrass extends AlphaBlock {
     public void registerBlockIcons(IIconRegister reg) {
         this.blockIcon = reg.registerIcon(this.getTextureName() + "_side");
         this.topIcon = reg.registerIcon(this.getTextureName() + "_top");
-        this.snowIcon = reg.registerIcon(this.getTextureName() + "_side_snowed");
-        this.overlayIcon = reg.registerIcon(this.getTextureName() + "_side_overlay");
+        this.snowIcon = reg.registerIcon(this.getTextureName() + "_side_snow");
     }
 
     @Override

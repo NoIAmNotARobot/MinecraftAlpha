@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 // Note to self: if rendering is weird between graphics levels, mess around with icons for a bit until it happens to
@@ -107,12 +108,10 @@ public class AlphaBlockLeaves extends AlphaBlockLeavesBase {
         return var1.nextInt(20) == 0 ? 1 : 0;
     }
 
-    /*
-     * @Override
-     * public Item getItemDropped(int meta, Random random, int fortune) {
-     * return Item.getItemFromBlock(AlphaBlock.sapling);
-     * }
-     */
+    @Override
+    public Item getItemDropped(int meta, Random random, int fortune) {
+        return Item.getItemFromBlock(AlphaBlock.sapling);
+    }
 
     public void setGraphicsLevel(boolean var1) {
         this.graphicsLevel = var1;
