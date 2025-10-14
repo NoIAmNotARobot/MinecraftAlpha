@@ -108,8 +108,8 @@ public class AlphaItem extends Item {
     // egg
     // compass
     // fishingRod
-    public static Item record13 = Items.record_13;
-    public static Item recordCat = Items.record_cat;
+    public static AlphaItem record13 = new AlphaItemRecord("record13", "records.13");
+    public static AlphaItem recordCat = new AlphaItemRecord("recordCat", "records.cat");
 
     protected String unlocalizedName;
 
@@ -181,6 +181,8 @@ public class AlphaItem extends Item {
         itemsList.add(paper);
         itemsList.add(book);
         itemsList.add(slimeBall);
+        itemsList.add(record13);
+        itemsList.add(recordCat);
 
         MinecraftAlpha.LOG.info("Registering items...");
         int itemsRegistered = 0;

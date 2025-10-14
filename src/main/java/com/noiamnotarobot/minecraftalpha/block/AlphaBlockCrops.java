@@ -99,6 +99,7 @@ public class AlphaBlockCrops extends AlphaBlockFlower {
         return 6;
     }
 
+    @SideOnly(Side.SERVER)
     public void onBlockDestroyedByPlayer(World var1, int var2, int var3, int var4, int var5) {
         super.onBlockDestroyedByPlayer(var1, var2, var3, var4, var5);
 
