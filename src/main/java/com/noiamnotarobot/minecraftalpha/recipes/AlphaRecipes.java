@@ -10,7 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AlphaRecipes {
 
     public static void registerRecipes() {
-        // tools
+        new AlphaRecipesTools().addRecipes();
         // weapons
         new AlphaRecipesIngots().addRecipes();
         new AlphaRecipesFood().addRecipes();

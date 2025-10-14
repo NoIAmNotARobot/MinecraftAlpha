@@ -46,7 +46,10 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock bedrock = (AlphaBlock) new AlphaBlock(Material.rock, "bedrock").setHardness(-1.0F)
         .setResistance(6000000.0F)
         .setStepSound(soundStoneFootstep);
-    // water
+    public static final Block waterMoving = Blocks.flowing_water;
+    public static final Block waterStill = Blocks.water;
+    public static final Block lavaMoving = Blocks.flowing_lava;
+    public static final Block lavaStill = Blocks.lava;
     // lava
     public static final AlphaBlock sand = (AlphaBlock) new AlphaBlockSand().setHardness(0.5F)
         .setStepSound(soundSandFootstep);
@@ -154,7 +157,7 @@ public class AlphaBlock extends Block {
     // doorSteel
     // pressurePlateWood
     public static final Block oreRedstone = Blocks.redstone_ore;
-    // oreRedstoneGlowing
+    public static final Block oreRedstoneGlowing = Blocks.lit_redstone_ore;
     // torchRedstoneIdle
     // torchRedstoneActive
     // button

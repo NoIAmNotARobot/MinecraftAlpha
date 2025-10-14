@@ -149,7 +149,7 @@ public class AlphaMapGenCaves extends AlphaMapGenBase {
                             for (int var42 = var36 + 1; !var56 && var42 >= var54 - 1; --var42) {
                                 var43 = (var40 * 16 + var41) * 128 + var42;
                                 if (var42 >= 0 && var42 < 128) {
-                                    if (var3[var43] == Blocks.flowing_water || var3[var43] == Blocks.water) {
+                                    if (var3[var43] == AlphaBlock.waterMoving || var3[var43] == AlphaBlock.waterStill) {
                                         var56 = true;
                                     }
 
@@ -184,7 +184,7 @@ public class AlphaMapGenCaves extends AlphaMapGenBase {
                                         if (var51 == AlphaBlock.stone || var51 == AlphaBlock.dirt
                                             || var51 == AlphaBlock.grass) {
                                             if (var48 < 10) {
-                                                var3[var46] = Blocks.flowing_lava;
+                                                var3[var46] = AlphaBlock.lavaMoving;
                                             } else {
                                                 var3[var46] = Blocks.air;
                                                 if (var47 && var3[var46 - 1] == AlphaBlock.dirt) {

@@ -102,7 +102,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
                                     if (Config.snowCovered && var11 * 8 + var30 >= var5 - 1) {
                                         var51 = AlphaBlock.ice;
                                     } else {
-                                        var51 = Blocks.water;
+                                        var51 = AlphaBlock.waterStill;
                                     }
                                 }
 
@@ -192,7 +192,7 @@ public class ChunkProviderAlpha implements IChunkProvider {
                                 }
 
                                 if (var15 < var4 && var13 == Blocks.air) {
-                                    var13 = Blocks.water;
+                                    var13 = AlphaBlock.waterStill;
                                 }
 
                                 var12 = var11;
@@ -499,13 +499,13 @@ public class ChunkProviderAlpha implements IChunkProvider {
             var15 = var4 + this.rand.nextInt(16) + 8;
             var16 = this.rand.nextInt(this.rand.nextInt(120) + 8);
             var17 = var5 + this.rand.nextInt(16) + 8;
-            (new AlphaWorldGenLiquids(Blocks.flowing_water)).generate(this.worldObj, this.rand, var15, var16, var17);
+            (new AlphaWorldGenLiquids(AlphaBlock.waterMoving)).generate(this.worldObj, this.rand, var15, var16, var17);
         }
         for (var14 = 0; var14 < 20; ++var14) {
             var15 = var4 + this.rand.nextInt(16) + 8;
             var16 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
             var17 = var5 + this.rand.nextInt(16) + 8;
-            (new AlphaWorldGenLiquids(Blocks.flowing_lava)).generate(this.worldObj, this.rand, var15, var16, var17);
+            (new AlphaWorldGenLiquids(AlphaBlock.lavaMoving)).generate(this.worldObj, this.rand, var15, var16, var17);
         }
 
         for (var14 = var4 + 8; var14 < var4 + 8 + 16; ++var14) {

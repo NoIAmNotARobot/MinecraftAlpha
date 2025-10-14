@@ -17,9 +17,9 @@ public class AlphaItem extends Item {
 
     public static Random rand = new Random();
     public static ArrayList<AlphaItem> itemsList = new ArrayList<>();
-    // shovel
-    // pickaxeIron
-    // axeIron
+    public static AlphaItem shovel = new AlphaItemSpade("shovel", 2);
+    public static AlphaItem pickaxeIron = new AlphaItemPickaxe("pickaxeIron", 2);
+    public static AlphaItem axeIron = new AlphaItemAxe("axeIron", 2);
     public static AlphaItem striker = new AlphaItemFlintAndSteel();
     public static AlphaItem appleRed = new AlphaItemFood("appleRed", 4);
     // bow
@@ -30,32 +30,32 @@ public class AlphaItem extends Item {
     public static AlphaItem ingotGold = new AlphaItem("ingotGold");
     // swordIron
     // swordWood
-    // shovelWood
-    // pickaxeWood
-    // axeWood
+    public static AlphaItem shovelWood = new AlphaItemSpade("shovelWood", 0);
+    public static AlphaItem pickaxeWood = new AlphaItemPickaxe("pickaxeWood", 0);
+    public static AlphaItem axeWood = new AlphaItemAxe("axeWood", 0);
     // swordStone
-    // shovelStone
-    // pickaxeStone
-    // axeStone
+    public static AlphaItem shovelStone = new AlphaItemSpade("shovelStone", 1);
+    public static AlphaItem pickaxeStone = new AlphaItemPickaxe("pickaxeStone", 1);
+    public static AlphaItem axeStone = new AlphaItemAxe("axeStone", 1);
     // swordDiamond
-    // shovelDiamond
-    // pickaxeDiamond
-    // axeDiamond
+    public static AlphaItem shovelDiamond = new AlphaItemSpade("shovelDiamond", 3);
+    public static AlphaItem pickaxeDiamond = new AlphaItemPickaxe("pickaxeDiamond", 3);
+    public static AlphaItem axeDiamond = new AlphaItemAxe("axeDiamond", 3);
     public static AlphaItem stick = new AlphaItem("stick");
     public static AlphaItem bowlEmpty = new AlphaItem("bowlEmpty");
     public static AlphaItem bowlSoup = new AlphaItemFood("bowlSoup", 10);
     // swordGold
-    // shovelGold
-    // pickaxeGold
-    // axeGold
+    public static AlphaItem shovelGold = new AlphaItemSpade("shovelGold", 0);
+    public static AlphaItem pickaxeGold = new AlphaItemPickaxe("pickaxeGold", 0);
+    public static AlphaItem axeGold = new AlphaItemAxe("axeGold", 0);
     public static AlphaItem silk = new AlphaItem("silk");
     public static AlphaItem feather = new AlphaItem("feather");
     public static AlphaItem gunpowder = new AlphaItem("gunpowder");
-    // hoeWood
-    // hoeStone
-    // hoeIron
-    // hoeDiamond
-    // hoeGold
+    public static AlphaItem hoeWood = new AlphaItemHoe("hoeWood", 0);
+    public static AlphaItem hoeStone = new AlphaItemHoe("hoeStone", 1);
+    public static AlphaItem hoeIron = new AlphaItemHoe("hoeIron", 2);
+    public static AlphaItem hoeDiamond = new AlphaItemHoe("hoeDiamond", 3);
+    public static AlphaItem hoeGold = new AlphaItemHoe("hoeGold", 1);
     public static AlphaItem seeds = new AlphaItemSeeds(AlphaBlock.crops);
     public static AlphaItem wheat = new AlphaItem("wheat");
     public static AlphaItem bread = new AlphaItemFood("bread", 5);
@@ -126,6 +126,9 @@ public class AlphaItem extends Item {
     }
 
     public static void preInit() {
+        itemsList.add(shovel);
+        itemsList.add(pickaxeIron);
+        itemsList.add(axeIron);
         itemsList.add(striker);
         itemsList.add(appleRed);
         itemsList.add(arrow);
@@ -133,12 +136,29 @@ public class AlphaItem extends Item {
         itemsList.add(diamond);
         itemsList.add(ingotIron);
         itemsList.add(ingotGold);
+        itemsList.add(shovelWood);
+        itemsList.add(pickaxeWood);
+        itemsList.add(axeWood);
+        itemsList.add(shovelStone);
+        itemsList.add(pickaxeStone);
+        itemsList.add(axeStone);
+        itemsList.add(shovelDiamond);
+        itemsList.add(pickaxeDiamond);
+        itemsList.add(axeDiamond);
         itemsList.add(stick);
         itemsList.add(bowlEmpty);
         itemsList.add(bowlSoup);
+        itemsList.add(shovelGold);
+        itemsList.add(pickaxeGold);
+        itemsList.add(axeGold);
         itemsList.add(silk);
         itemsList.add(feather);
         itemsList.add(gunpowder);
+        itemsList.add(hoeWood);
+        itemsList.add(hoeStone);
+        itemsList.add(hoeIron);
+        itemsList.add(hoeDiamond);
+        itemsList.add(hoeGold);
         itemsList.add(seeds);
         itemsList.add(wheat);
         itemsList.add(bread);
