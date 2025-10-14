@@ -28,23 +28,23 @@ public class AlphaItem extends Item {
     public static AlphaItem diamond = new AlphaItem("diamond");
     public static AlphaItem ingotIron = new AlphaItem("ingotIron");
     public static AlphaItem ingotGold = new AlphaItem("ingotGold");
-    // swordIron
-    // swordWood
+    public static AlphaItem swordIron = new AlphaItemSword("swordIron", 2);
+    public static AlphaItem swordWood = new AlphaItemSword("swordWood", 0);
     public static AlphaItem shovelWood = new AlphaItemSpade("shovelWood", 0);
     public static AlphaItem pickaxeWood = new AlphaItemPickaxe("pickaxeWood", 0);
     public static AlphaItem axeWood = new AlphaItemAxe("axeWood", 0);
-    // swordStone
+    public static AlphaItem swordStone = new AlphaItemSword("swordStone", 1);
     public static AlphaItem shovelStone = new AlphaItemSpade("shovelStone", 1);
     public static AlphaItem pickaxeStone = new AlphaItemPickaxe("pickaxeStone", 1);
     public static AlphaItem axeStone = new AlphaItemAxe("axeStone", 1);
-    // swordDiamond
+    public static AlphaItem swordDiamond = new AlphaItemSword("swordDiamond", 3);
     public static AlphaItem shovelDiamond = new AlphaItemSpade("shovelDiamond", 3);
     public static AlphaItem pickaxeDiamond = new AlphaItemPickaxe("pickaxeDiamond", 3);
     public static AlphaItem axeDiamond = new AlphaItemAxe("axeDiamond", 3);
     public static AlphaItem stick = new AlphaItem("stick");
     public static AlphaItem bowlEmpty = new AlphaItem("bowlEmpty");
     public static AlphaItem bowlSoup = new AlphaItemFood("bowlSoup", 10);
-    // swordGold
+    public static AlphaItem swordGold = new AlphaItemSword("swordGold", 0);
     public static AlphaItem shovelGold = new AlphaItemSpade("shovelGold", 0);
     public static AlphaItem pickaxeGold = new AlphaItemPickaxe("pickaxeGold", 0);
     public static AlphaItem axeGold = new AlphaItemAxe("axeGold", 0);
@@ -136,18 +136,23 @@ public class AlphaItem extends Item {
         itemsList.add(diamond);
         itemsList.add(ingotIron);
         itemsList.add(ingotGold);
+        itemsList.add(swordIron);
+        itemsList.add(swordWood);
         itemsList.add(shovelWood);
         itemsList.add(pickaxeWood);
         itemsList.add(axeWood);
+        itemsList.add(swordStone);
         itemsList.add(shovelStone);
         itemsList.add(pickaxeStone);
         itemsList.add(axeStone);
+        itemsList.add(swordDiamond);
         itemsList.add(shovelDiamond);
         itemsList.add(pickaxeDiamond);
         itemsList.add(axeDiamond);
         itemsList.add(stick);
         itemsList.add(bowlEmpty);
         itemsList.add(bowlSoup);
+        itemsList.add(swordGold);
         itemsList.add(shovelGold);
         itemsList.add(pickaxeGold);
         itemsList.add(axeGold);

@@ -11,7 +11,7 @@ public class AlphaRecipes {
 
     public static void registerRecipes() {
         new AlphaRecipesTools().addRecipes();
-        // weapons
+        new AlphaRecipesWeapons().addRecipes();
         new AlphaRecipesIngots().addRecipes();
         new AlphaRecipesFood().addRecipes();
         new AlphaRecipesCrafting().addRecipes();
