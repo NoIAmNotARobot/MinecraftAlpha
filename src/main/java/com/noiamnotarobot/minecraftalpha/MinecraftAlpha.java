@@ -59,7 +59,8 @@ public class MinecraftAlpha {
         MinecraftAlpha.LOG.info("I am MinecraftAlpha, mod version " + Tags.VERSION + ".");
 
         biomeAlpha = new BiomeGenAlpha(Config.biomeID).setBiomeName("Minecraft Alpha 1.1.2_01")
-            .setTemperatureRainfall(1.0F, 0.0F);
+            .setTemperatureRainfall(Config.snowCovered ? 0.05F : 0.6F, Config.snowCovered ? 0.2F : 0.5F)
+            .setEnableSnow();
 
         AlphaBlock.preInit();
         AlphaItem.preInit();

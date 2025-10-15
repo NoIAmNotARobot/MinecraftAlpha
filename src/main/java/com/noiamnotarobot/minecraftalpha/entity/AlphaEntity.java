@@ -8,6 +8,7 @@ public abstract class AlphaEntity {
 
     public static void preInit() {
         createEntity(AlphaEntitySnowball.class, "alpha_snowball", 64);
+        createEntity(AlphaEntityArrow.class, "alpha_arrow", 64);
     }
 
     public static void createEntity(Class entityClass, String entityName, int trackingRange) {

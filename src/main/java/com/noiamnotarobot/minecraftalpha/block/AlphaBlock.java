@@ -26,7 +26,7 @@ public class AlphaBlock extends Block {
     public static final AlphaStepSound soundClothFootstep = new AlphaStepSound("cloth", 1.0F, 1.0F);
     public static final AlphaStepSound soundSandFootstep = new AlphaStepSoundSand("sand", 1.0F, 1.0F);
 
-    public static List<AlphaBlock> blocksList = new ArrayList<>();
+    public static List<Block> blocksList = new ArrayList<>();
     public static final AlphaBlock stone = (AlphaBlock) new AlphaBlockStone().setHardness(1.5F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
@@ -50,7 +50,6 @@ public class AlphaBlock extends Block {
     public static final Block waterStill = Blocks.water;
     public static final Block lavaMoving = Blocks.flowing_lava;
     public static final Block lavaStill = Blocks.lava;
-    // lava
     public static final AlphaBlock sand = (AlphaBlock) new AlphaBlockSand().setHardness(0.5F)
         .setStepSound(soundSandFootstep);
     public static final AlphaBlock gravel = (AlphaBlock) new AlphaBlockGravel().setHardness(0.6F)
@@ -109,8 +108,14 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock blockIron = (AlphaBlock) new AlphaBlockOreBlock("blockIron").setHardness(5.0F)
         .setResistance(10.0F)
         .setStepSound(soundMetalFootstep);
-    // stairDouble
-    // stairSingle
+    public static final AlphaBlock stairDouble = (AlphaBlock) new AlphaBlockStep("stairDouble", true, false)
+        .setHardness(2.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final AlphaBlock stairSingle = (AlphaBlock) new AlphaBlockStep("stairSingle", false, true)
+        .setHardness(2.0F)
+        .setResistance(10.0F)
+        .setStepSound(soundStoneFootstep);
     public static final AlphaBlock brick = (AlphaBlock) new AlphaBlock(Material.rock, "brick").setHardness(2.0F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
@@ -124,7 +129,9 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock obsidian = (AlphaBlock) new AlphaBlock(Material.rock, "obsidian").setHardness(10.0F)
         .setResistance(2000.0F)
         .setStepSound(soundStoneFootstep);
-    // torch
+    public static final AlphaBlock torch = (AlphaBlock) new AlphaBlockTorch().setHardness(0.0F)
+        .setLightLevel(15.0F / 16.0F)
+        .setStepSound(soundWoodFootstep);
     // fire
     public static final AlphaBlock mobSpawner = (AlphaBlock) new AlphaBlockMobSpawner().setHardness(5.0F)
         .setStepSound(soundMetalFootstep);
@@ -144,8 +151,13 @@ public class AlphaBlock extends Block {
         .setStepSound(soundTypeGrass);
     public static final AlphaBlock tilledField = (AlphaBlock) new AlphaBlockFarmland().setHardness(0.6F)
         .setStepSound(soundTypeGravel);
-    // stoneOvenIdle
-    // stoneOvenActive
+    public static final AlphaBlock stoneOvenIdle = (AlphaBlock) new AlphaBlockFurnace("stoneOvenIdle", false, true)
+        .setHardness(3.5F)
+        .setStepSound(soundStoneFootstep);
+    public static final AlphaBlock stoneOvenActive = (AlphaBlock) new AlphaBlockFurnace("stoneOvenActive", true, false)
+        .setHardness(3.5F)
+        .setStepSound(soundStoneFootstep)
+        .setLightLevel(14.0F / 16.0F);
     // signStanding
     // doorWood
     // ladder
@@ -217,10 +229,13 @@ public class AlphaBlock extends Block {
         blocksList.add(mushroomRed);
         blocksList.add(blockGold);
         blocksList.add(blockIron);
+        blocksList.add(stairDouble);
+        blocksList.add(stairSingle);
         blocksList.add(brick);
         blocksList.add(bookshelf);
         blocksList.add(cobblestoneMossy);
         blocksList.add(obsidian);
+        blocksList.add(torch);
         blocksList.add(mobSpawner);
         blocksList.add(chest);
         blocksList.add(oreDiamond);
@@ -228,6 +243,8 @@ public class AlphaBlock extends Block {
         blocksList.add(workbench);
         blocksList.add(crops);
         blocksList.add(tilledField);
+        blocksList.add(stoneOvenIdle);
+        blocksList.add(stoneOvenActive);
         blocksList.add(snow);
         blocksList.add(ice);
         blocksList.add(blockSnow);
@@ -238,7 +255,7 @@ public class AlphaBlock extends Block {
 
         MinecraftAlpha.LOG.info("Registering blocks...");
         int blocksRegistered = 0;
-        for (AlphaBlock block : blocksList) {
+        for (Block block : blocksList) {
             GameRegistry.registerBlock(block, block.getUnlocalizedName());
             blocksRegistered++;
         }

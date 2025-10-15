@@ -25,8 +25,8 @@ public class AlphaRecipesWeapons {
                 GameRegistry.addRecipe(new ItemStack(var5), this.recipePatterns[var4], '#', AlphaItem.stick, 'X', var3);
             }
         }
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.bow, 1), " #X", "# X", " #X", 'X', AlphaItem.silk, '#',
-        // AlphaItem.stick);
+        GameRegistry
+            .addRecipe(new ItemStack(AlphaItem.bow, 1), " #X", "# X", " #X", 'X', AlphaItem.silk, '#', AlphaItem.stick);
         GameRegistry.addRecipe(
             new ItemStack(AlphaItem.arrow, 4),
             "X",

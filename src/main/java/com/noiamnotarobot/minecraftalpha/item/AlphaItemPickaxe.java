@@ -15,10 +15,10 @@ public class AlphaItemPickaxe extends AlphaItemTool {
             name,
             2,
             harvestLevel,
-            new Block[] { AlphaBlock.cobblestone,
-                /* AlphaBlock.stairDouble, AlphaBlock.stairSingle, */ AlphaBlock.stone, AlphaBlock.cobblestoneMossy,
-                AlphaBlock.oreIron, AlphaBlock.blockIron, AlphaBlock.oreCoal, AlphaBlock.blockGold, AlphaBlock.oreGold,
-                AlphaBlock.oreDiamond, AlphaBlock.blockDiamond, AlphaBlock.ice });
+            new Block[] { AlphaBlock.cobblestone, AlphaBlock.stairDouble, AlphaBlock.stairSingle, AlphaBlock.stone,
+                AlphaBlock.cobblestoneMossy, AlphaBlock.oreIron, AlphaBlock.blockIron, AlphaBlock.oreCoal,
+                AlphaBlock.blockGold, AlphaBlock.oreGold, AlphaBlock.oreDiamond, AlphaBlock.blockDiamond,
+                AlphaBlock.ice });
         this.harvestLevel = harvestLevel;
     }
 

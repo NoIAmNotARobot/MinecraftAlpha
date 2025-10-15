@@ -67,5 +67,11 @@
     "sounds": [
       "random/bow"
     ]
+  },
+  "random.pop": {
+    "category": "player",
+    "sounds": [
+      "random/pop"
+    ]
   }
 }

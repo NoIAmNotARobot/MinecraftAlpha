@@ -20,8 +20,15 @@ public class AlphaRecipes {
         GameRegistry.addRecipe(new ItemStack(AlphaItem.paper, 3), "###", '#', AlphaItem.reed);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.book, 1), "#", "#", "#", '#', AlphaItem.paper);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.fence, 2), "###", "###", '#', AlphaItem.stick);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.jukebox, 1), "###", "#X#", "###", '#', AlphaBlock.planks,
-        // 'X', AlphaItem.diamond);
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaBlock.jukebox, 1),
+            "###",
+            "#X#",
+            "###",
+            '#',
+            AlphaBlock.planks,
+            'X',
+            AlphaItem.diamond);
         GameRegistry.addRecipe(
             new ItemStack(AlphaBlock.bookshelf, 1),
             "###",
@@ -38,7 +45,7 @@ public class AlphaRecipes {
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.cloth, 1), "###", "###", "###", '#', AlphaItem.silk);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.tnt, 1), "X#X", "#X#", "X#X", 'X', AlphaItem.gunpowder, '#',
         // AlphaBlock.sand);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.stairSingle, 3), "###", '#', AlphaBlock.cobblestone);
+        GameRegistry.addRecipe(new ItemStack(AlphaBlock.stairSingle, 3), "###", '#', AlphaBlock.cobblestone);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.ladder, 1), "# #", "###", "# #", '#', AlphaItem.stick);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.doorWood, 1), "##", "##", "##", '#', AlphaBlock.planks);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.doorSteel, 1), "##", "##", "##", '#', AlphaItem.ingotIron);
@@ -46,8 +53,7 @@ public class AlphaRecipes {
         // AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.planks, 4), "#", '#', AlphaBlock.wood);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.stick, 4), "#", "#", '#', AlphaBlock.planks);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.torch, 4), "X", "#", 'X', AlphaItem.coal, '#',
-        // AlphaItem.stick);
+        GameRegistry.addRecipe(new ItemStack(AlphaBlock.torch, 4), "X", "#", 'X', AlphaItem.coal, '#', AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.bowlEmpty, 4), "# #", " # ", '#', AlphaBlock.planks);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.minecartTrack, 16), "X X", "X#X", "X X", 'X',
         // AlphaItem.ingotIron, '#', AlphaItem.stick);
@@ -57,7 +63,7 @@ public class AlphaRecipes {
         // GameRegistry.addRecipe(new ItemStack(AlphaItem.minecartEngine, 1), new Object[]{"A", "B", 'A',
         // AlphaBlock.stoneOvenIdle, 'B', AlphaItem.minecartEmpty});
         // GameRegistry.addRecipe(new ItemStack(AlphaItem.boat, 1), "# #", "###", '#', AlphaBlock.planks);
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.bucketEmpty, 1), "# #", " # ", '#', AlphaItem.ingotIron);
+        GameRegistry.addRecipe(new ItemStack(AlphaItem.bucketEmpty, 1), "# #", " # ", '#', AlphaItem.ingotIron);
         GameRegistry
             .addRecipe(new ItemStack(AlphaItem.striker, 1), "A ", " B", 'A', AlphaItem.ingotIron, 'B', AlphaItem.flint);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.bread, 1), "###", '#', AlphaItem.wheat);
@@ -87,5 +93,13 @@ public class AlphaRecipes {
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.button, 1), "#", "#", '#', AlphaBlock.stone);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateStone, 1), "###", '#', AlphaBlock.stone);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateWood, 1), "###", '#', AlphaBlock.planks);
+
+        GameRegistry.addSmelting(AlphaBlock.oreIron, new ItemStack(AlphaItem.ingotIron), 0);
+        GameRegistry.addSmelting(AlphaBlock.oreGold, new ItemStack(AlphaItem.ingotGold), 0);
+        GameRegistry.addSmelting(AlphaBlock.oreDiamond, new ItemStack(AlphaItem.diamond), 0);
+        GameRegistry.addSmelting(AlphaBlock.sand, new ItemStack(AlphaBlock.glass), 0);
+        GameRegistry.addSmelting(AlphaItem.porkRaw, new ItemStack(AlphaItem.porkCooked), 0);
+        GameRegistry.addSmelting(AlphaBlock.cobblestone, new ItemStack(AlphaBlock.stone), 0);
+        GameRegistry.addSmelting(AlphaItem.clay, new ItemStack(AlphaItem.brick), 0);
     }
 }
