@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
+    public static boolean gregification = true;
     public static int dimensionID = 98;
     public static int dimensionProviderID = 98;
     public static int biomeID = 242;
@@ -15,6 +16,8 @@ public class Config {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
+        gregification = configuration
+            .getBoolean("gregification", Configuration.CATEGORY_GENERAL, gregification, "Gregificates.");
         dimensionID = configuration.getInt(
             "dimensionID",
             "dimension",

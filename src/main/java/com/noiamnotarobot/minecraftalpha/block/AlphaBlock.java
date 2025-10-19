@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
@@ -160,14 +161,21 @@ public class AlphaBlock extends Block {
         .setLightLevel(14.0F / 16.0F);
     // signStanding
     // doorWood
-    // ladder
+    public static final AlphaBlock ladder = (AlphaBlock) new AlphaBlockLadder().setHardness(0.4F)
+        .setStepSound(soundWoodFootstep);
     // minecartTrack
     // stairCompactStone
     // signWall
     // lever
-    // pressurePlateStone
+    public static final AlphaBlock pressurePlateStone = (AlphaBlock) (new AlphaBlockPressurePlate(
+        "pressurePlateStone",
+        BlockPressurePlate.Sensitivity.mobs)).setHardness(0.5F)
+            .setStepSound(soundStoneFootstep);
     // doorSteel
-    // pressurePlateWood
+    public static final AlphaBlock pressurePlateWood = (AlphaBlock) (new AlphaBlockPressurePlate(
+        "pressurePlateWood",
+        BlockPressurePlate.Sensitivity.mobs)).setHardness(0.5F)
+            .setStepSound(soundWoodFootstep);
     public static final Block oreRedstone = Blocks.redstone_ore;
     public static final Block oreRedstoneGlowing = Blocks.lit_redstone_ore;
     // torchRedstoneIdle
@@ -245,6 +253,9 @@ public class AlphaBlock extends Block {
         blocksList.add(tilledField);
         blocksList.add(stoneOvenIdle);
         blocksList.add(stoneOvenActive);
+        blocksList.add(ladder);
+        blocksList.add(pressurePlateStone);
+        blocksList.add(pressurePlateWood);
         blocksList.add(snow);
         blocksList.add(ice);
         blocksList.add(blockSnow);
