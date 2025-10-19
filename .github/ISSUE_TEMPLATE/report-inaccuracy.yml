@@ -28,6 +28,7 @@ body:
     required: true
 - type: checkboxes
   id: final
+  label: Confirm
   attributes:
     options:
       - label: "I have confirmed that this inaccuracy has not been reported in any open or closed issue yet, and understand that commenting on a closed issue may reopen it."
