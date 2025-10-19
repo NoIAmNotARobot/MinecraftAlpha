@@ -1,0 +1,36 @@
+name: Report Inaccuracy
+description: "Report anything that does not match the alpha version, including bugs."
+labels: ["inaccuracy"]
+body:
+- type: markdown
+  attributes:
+    value: 'This category only covers differences between this mod and Minecraft Alpha 1.1.2_01, including missing features and excess bugs. There are bugs that are part of the alpha version, and thus will not be fixed. Please also make sure to check to see if this inaccuracy has already been reported.'
+- type: input
+  id: version
+  attributes:
+    label: Mod Version
+    description: What is the version of the mod you are using?
+  validations:
+    required: true
+- type: textarea
+  id: alpha
+  attributes:
+    label: Alpha Behavior
+    description: How does Minecraft Alpha 1.1.2_01 behave here? Add screenshots or video if possible.
+  validations:
+    required: true
+- type: textarea
+  id: mod
+  attributes:
+    label: Mod Behavior
+    description: How does the mod behave here? Add screenshots or video if possible.
+  validations:
+    required: true
+- type: checkboxes
+  id: final
+  attributes:
+    options:
+      - label: "I have confirmed that this inaccuracy has not been reported in any open or closed issue yet, and understand that commenting on a closed issue may reopen it."
+        required: true
+      - label: "I am able to reproduce this issue myself, or am able to find an instance of another doing so."
+        required: false
