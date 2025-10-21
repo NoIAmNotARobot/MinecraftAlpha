@@ -215,6 +215,7 @@ public class AlphaBlockChest extends AlphaBlockContainer {
         } else if (world.getBlock(x, y, z + 1) == this && world.isBlockNormalCubeDefault(x, y + 1, z + 1, true)) {
             return true;
         } else {
+            world.markTileEntityChunkModified(x, y, z, (TileEntity) var6);
             if (world.getBlock(x - 1, y, z) == this) {
                 var6 = new InventoryLargeChest(
                     "Large chest",

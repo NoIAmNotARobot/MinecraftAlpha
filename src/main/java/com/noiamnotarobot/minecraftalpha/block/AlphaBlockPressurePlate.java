@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate.Sensitivity;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,16 +15,25 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+
 public class AlphaBlockPressurePlate extends AlphaBlock {
 
     private final Sensitivity triggerMobType;
+    private final String textureCopy;
 
-    protected AlphaBlockPressurePlate(String name, Sensitivity var3) {
+    protected AlphaBlockPressurePlate(String name, Sensitivity var3, String textureCopy) {
         super(Material.rock, name);
         this.triggerMobType = var3;
         this.setTickRandomly(true);
         float var4 = 1.0F / 16.0F;
         this.setBlockBounds(var4, 0.0F, var4, 1.0F - var4, 0.03125F, 1.0F - var4);
+        this.textureCopy = textureCopy;
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister reg) {
+        this.blockIcon = reg.registerIcon(textureCopy);
     }
 
     public int tickRate(World worldIn) {
@@ -113,7 +123,7 @@ public class AlphaBlockPressurePlate extends AlphaBlock {
                 (double) var2 + 0.5D,
                 (double) var3 + 0.1D,
                 (double) var4 + 0.5D,
-                "random.click",
+                MinecraftAlpha.MODID + ":random.click",
                 0.3F,
                 0.6F);
         }
@@ -127,7 +137,7 @@ public class AlphaBlockPressurePlate extends AlphaBlock {
                 (double) var2 + 0.5D,
                 (double) var3 + 0.1D,
                 (double) var4 + 0.5D,
-                "random.click",
+                MinecraftAlpha.MODID + ":random.click",
                 0.3F,
                 0.5F);
         }
@@ -158,16 +168,21 @@ public class AlphaBlockPressurePlate extends AlphaBlock {
         }
     }
 
-    public int isProvidingStrongPower(IBlockAccess var1, int var2, int var3, int var4, int var5) {
+    public int isProvidingWeakPower(IBlockAccess var1, int var2, int var3, int var4, int var5) {
         return var1.getBlockMetadata(var2, var3, var4) > 0 ? 15 : 0;
     }
 
-    public int isProvidingWeakPower(IBlockAccess var1, int var2, int var3, int var4, int var5) {
+    public int isProvidingStrongPower(IBlockAccess var1, int var2, int var3, int var4, int var5) {
         return (var1.getBlockMetadata(var2, var3, var4) != 0 && var5 == 1) ? 15 : 0;
     }
 
     public boolean canProvidePower() {
         return true;
+    }
+
+    @Override
+    public int getMobilityFlag() {
+        return 1;
     }
 
     public void setBlockBoundsForItemRender() {

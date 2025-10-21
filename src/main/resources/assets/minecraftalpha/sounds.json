@@ -73,5 +73,23 @@
     "sounds": [
       "random/pop"
     ]
+  },
+  "random.click": {
+    "category": "block",
+    "sounds": [
+      "random/click"
+    ]
+  },
+  "random.door_open": {
+    "category": "block",
+    "sounds": [
+      "random/door_open"
+    ]
+  },
+  "random.door_close": {
+    "category": "block",
+    "sounds": [
+      "random/door_close"
+    ]
   }
 }

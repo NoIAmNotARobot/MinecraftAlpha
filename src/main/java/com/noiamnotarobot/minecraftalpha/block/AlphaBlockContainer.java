@@ -8,16 +8,18 @@ import net.minecraft.world.World;
 public abstract class AlphaBlockContainer extends AlphaBlock implements ITileEntityProvider {
 
     protected AlphaBlockContainer(Material materialIn, String name) {
-        super(materialIn, name);
+        this(materialIn, name, true);
     }
 
     protected AlphaBlockContainer(Material materialIn, String name, boolean addToCreativeMenu) {
         super(materialIn, name, addToCreativeMenu);
+        this.isBlockContainer = true;
     }
 
     @Override
     public void onBlockAdded(World world, int x, int y, int z) {
         super.onBlockAdded(world, x, y, z);
+        world.setTileEntity(x, y, z, createNewTileEntity(world, world.getBlockMetadata(x, y, z)));
     }
 
     @Override

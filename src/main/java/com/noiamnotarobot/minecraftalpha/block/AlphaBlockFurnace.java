@@ -109,6 +109,7 @@ public class AlphaBlockFurnace extends AlphaBlockContainer {
         float subY, float subZ) {
         AlphaTileEntityFurnace var6 = (AlphaTileEntityFurnace) var1.getTileEntity(var2, var3, var4);
         var5.func_146101_a(var6);
+        var1.markTileEntityChunkModified(var2, var3, var4, var6);
         return true;
     }
 

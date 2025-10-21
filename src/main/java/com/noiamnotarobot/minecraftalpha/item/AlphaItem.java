@@ -3,6 +3,7 @@ package com.noiamnotarobot.minecraftalpha.item;
 import java.util.ArrayList;
 import java.util.Random;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -60,39 +61,39 @@ public class AlphaItem extends Item {
     public static AlphaItem seeds = new AlphaItemSeeds(AlphaBlock.crops);
     public static AlphaItem wheat = new AlphaItem("wheat");
     public static AlphaItem bread = new AlphaItemFood("bread", 5);
-    // helmetLeather
-    // plateLeather
-    // legsLeather
-    // bootsLeather
-    // helmetChain
-    // plateChain
-    // legsChain
-    // bootsChain
-    // helmetIron
-    // plateIron
-    // legsIron
-    // bootsIron
-    // helmetDiamond
-    // plateDiamond
-    // legsDiamond
-    // bootsDiamond
-    // helmetGold
-    // plateGold
-    // legsGold
-    // bootsGold
+    public static AlphaItem helmetLeather = new AlphaItemArmor("helmetLeather", 0, 0, 0);
+    public static AlphaItem plateLeather = new AlphaItemArmor("plateLeather", 0, 0, 1);
+    public static AlphaItem legsLeather = new AlphaItemArmor("legsLeather", 0, 0, 2);
+    public static AlphaItem bootsLeather = new AlphaItemArmor("bootsLeather", 0, 0, 3);
+    public static AlphaItem helmetChain = new AlphaItemArmor("helmetChain", 1, 1, 0);
+    public static AlphaItem plateChain = new AlphaItemArmor("plateChain", 1, 1, 1);
+    public static AlphaItem legsChain = new AlphaItemArmor("legsChain", 1, 1, 2);
+    public static AlphaItem bootsChain = new AlphaItemArmor("bootsChain", 1, 1, 3);
+    public static AlphaItem helmetIron = new AlphaItemArmor("helmetIron", 2, 2, 0);
+    public static AlphaItem plateIron = new AlphaItemArmor("plateIron", 2, 2, 1);
+    public static AlphaItem legsIron = new AlphaItemArmor("legsIron", 2, 2, 2);
+    public static AlphaItem bootsIron = new AlphaItemArmor("bootsIron", 2, 2, 3);
+    public static AlphaItem helmetDiamond = new AlphaItemArmor("helmetDiamond", 3, 3, 0);
+    public static AlphaItem plateDiamond = new AlphaItemArmor("plateDiamond", 3, 3, 1);
+    public static AlphaItem legsDiamond = new AlphaItemArmor("legsDiamond", 3, 3, 2);
+    public static AlphaItem bootsDiamond = new AlphaItemArmor("bootsDiamond", 3, 3, 3);
+    public static AlphaItem helmetGold = new AlphaItemArmor("helmetGold", 1, 4, 0);
+    public static AlphaItem plateGold = new AlphaItemArmor("plateGold", 1, 4, 1);
+    public static AlphaItem legsGold = new AlphaItemArmor("legsGold", 1, 4, 2);
+    public static AlphaItem bootsGold = new AlphaItemArmor("bootsGold", 1, 4, 3);
     public static AlphaItem flint = new AlphaItem("flint");
     public static AlphaItem porkRaw = new AlphaItemFood("porkRaw", 3);
     public static AlphaItem porkCooked = new AlphaItemFood("porkCooked", 8);
     // painting
     public static AlphaItem appleGold = new AlphaItemFood("appleGold", 42);
     // sign
-    // doorWood
+    public static AlphaItem doorWood = new AlphaItemDoor("doorWood", Material.wood);
     public static AlphaItem bucketEmpty = new AlphaItemBucket("bucketEmpty", Blocks.air);
     public static AlphaItem bucketWater = new AlphaItemBucket("bucketWater", AlphaBlock.waterStill);
     public static AlphaItem bucketLava = new AlphaItemBucket("bucketLava", AlphaBlock.lavaStill, 20000);
     // minecartEmpty
     public static AlphaItem saddle = new AlphaItemSaddle();
-    // doorIron
+    public static AlphaItem doorIron = new AlphaItemDoor("doorIron", Material.iron);
     public static AlphaItem redstone = new AlphaItemRedstone();
     public static AlphaItem snowball = new AlphaItemSnowball();
     // boat
@@ -169,14 +170,36 @@ public class AlphaItem extends Item {
         itemsList.add(seeds);
         itemsList.add(wheat);
         itemsList.add(bread);
+        itemsList.add(helmetLeather);
+        itemsList.add(plateLeather);
+        itemsList.add(legsLeather);
+        itemsList.add(bootsLeather);
+        itemsList.add(helmetChain);
+        itemsList.add(plateChain);
+        itemsList.add(legsChain);
+        itemsList.add(bootsChain);
+        itemsList.add(helmetIron);
+        itemsList.add(plateIron);
+        itemsList.add(legsIron);
+        itemsList.add(bootsIron);
+        itemsList.add(helmetDiamond);
+        itemsList.add(plateDiamond);
+        itemsList.add(legsDiamond);
+        itemsList.add(bootsDiamond);
+        itemsList.add(helmetGold);
+        itemsList.add(plateGold);
+        itemsList.add(legsGold);
+        itemsList.add(bootsGold);
         itemsList.add(flint);
         itemsList.add(porkRaw);
         itemsList.add(porkCooked);
         itemsList.add(appleGold);
+        itemsList.add(doorWood);
         itemsList.add(bucketEmpty);
         itemsList.add(bucketWater);
         itemsList.add(bucketLava);
         itemsList.add(saddle);
+        itemsList.add(doorIron);
         itemsList.add(redstone);
         itemsList.add(snowball);
         itemsList.add(leather);

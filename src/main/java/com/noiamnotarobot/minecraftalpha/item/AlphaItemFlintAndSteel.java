@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 
 public class AlphaItemFlintAndSteel extends AlphaItem {
 
@@ -52,7 +53,7 @@ public class AlphaItemFlintAndSteel extends AlphaItem {
                 MinecraftAlpha.MODID + ":fire.ignite",
                 1.0F,
                 rand.nextFloat() * 0.4F + 0.8F);
-            var3.setBlock(var4, var5, var6, Blocks.fire);
+            var3.setBlock(var4, var5, var6, AlphaBlock.fire);
         }
 
         if (!var2.capabilities.isCreativeMode) var1.damageItem(1, var2);

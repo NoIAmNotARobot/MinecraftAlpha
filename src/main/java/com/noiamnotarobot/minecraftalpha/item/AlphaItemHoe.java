@@ -34,7 +34,7 @@ public class AlphaItemHoe extends AlphaItem {
                 AlphaBlock.tilledField.stepSound.getPitch() * 0.8F);
             var3.setBlock(var4, var5, var6, AlphaBlock.tilledField);
             var1.damageItem(1, var2);
-            if (var3.rand.nextInt(8) == 0 && var21 == AlphaBlock.grass) {
+            if (!var3.isRemote && var3.rand.nextInt(8) == 0 && var21 == AlphaBlock.grass) {
                 byte var11 = 1;
 
                 for (int var12 = 0; var12 < var11; ++var12) {

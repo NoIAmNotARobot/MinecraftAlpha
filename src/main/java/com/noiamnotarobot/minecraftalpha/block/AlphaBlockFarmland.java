@@ -62,7 +62,7 @@ public class AlphaBlockFarmland extends AlphaBlock {
     }
 
     public void onEntityWalking(World var1, int var2, int var3, int var4, Entity var5) {
-        if (var1.rand.nextInt(4) == 0) {
+        if (!var1.isRemote && var1.rand.nextInt(4) == 0) {
             var1.setBlock(var2, var3, var4, AlphaBlock.dirt, 0, 3);
         }
 

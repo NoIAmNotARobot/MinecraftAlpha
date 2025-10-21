@@ -120,7 +120,7 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock brick = (AlphaBlock) new AlphaBlock(Material.rock, "brick").setHardness(2.0F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
-    // tnt
+    public static final Block tnt = Blocks.tnt;
     public static final AlphaBlock bookshelf = (AlphaBlock) new AlphaBlockBookshelf().setHardness(1.5F)
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlock cobblestoneMossy = (AlphaBlock) new AlphaBlock(Material.rock, "cobblestoneMossy")
@@ -133,7 +133,9 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock torch = (AlphaBlock) new AlphaBlockTorch().setHardness(0.0F)
         .setLightLevel(15.0F / 16.0F)
         .setStepSound(soundWoodFootstep);
-    // fire
+    public static final AlphaBlockFire fire = (AlphaBlockFire) new AlphaBlockFire().setHardness(0.0F)
+        .setLightLevel(1.0F)
+        .setStepSound(soundWoodFootstep);
     public static final AlphaBlock mobSpawner = (AlphaBlock) new AlphaBlockMobSpawner().setHardness(5.0F)
         .setStepSound(soundMetalFootstep);
     // stairCompactWood
@@ -160,7 +162,9 @@ public class AlphaBlock extends Block {
         .setStepSound(soundStoneFootstep)
         .setLightLevel(14.0F / 16.0F);
     // signStanding
-    // doorWood
+    public static final AlphaBlock doorWood = (AlphaBlock) new AlphaBlockDoor(Material.wood, "doorWood")
+        .setHardness(3.0F)
+        .setStepSound(soundWoodFootstep);
     public static final AlphaBlock ladder = (AlphaBlock) new AlphaBlockLadder().setHardness(0.4F)
         .setStepSound(soundWoodFootstep);
     // minecartTrack
@@ -169,12 +173,14 @@ public class AlphaBlock extends Block {
     // lever
     public static final AlphaBlock pressurePlateStone = (AlphaBlock) (new AlphaBlockPressurePlate(
         "pressurePlateStone",
-        BlockPressurePlate.Sensitivity.mobs)).setHardness(0.5F)
+        BlockPressurePlate.Sensitivity.mobs,
+        stone.getTextureName())).setHardness(0.5F)
             .setStepSound(soundStoneFootstep);
-    // doorSteel
+    public static final AlphaBlock doorIron = new AlphaBlockDoor(Material.iron, "doorIron");
     public static final AlphaBlock pressurePlateWood = (AlphaBlock) (new AlphaBlockPressurePlate(
         "pressurePlateWood",
-        BlockPressurePlate.Sensitivity.mobs)).setHardness(0.5F)
+        BlockPressurePlate.Sensitivity.mobs,
+        planks.getTextureName())).setHardness(0.5F)
             .setStepSound(soundWoodFootstep);
     public static final Block oreRedstone = Blocks.redstone_ore;
     public static final Block oreRedstoneGlowing = Blocks.lit_redstone_ore;
@@ -244,6 +250,7 @@ public class AlphaBlock extends Block {
         blocksList.add(cobblestoneMossy);
         blocksList.add(obsidian);
         blocksList.add(torch);
+        blocksList.add(fire);
         blocksList.add(mobSpawner);
         blocksList.add(chest);
         blocksList.add(oreDiamond);
@@ -253,8 +260,10 @@ public class AlphaBlock extends Block {
         blocksList.add(tilledField);
         blocksList.add(stoneOvenIdle);
         blocksList.add(stoneOvenActive);
+        blocksList.add(doorWood);
         blocksList.add(ladder);
         blocksList.add(pressurePlateStone);
+        blocksList.add(doorIron);
         blocksList.add(pressurePlateWood);
         blocksList.add(snow);
         blocksList.add(ice);
