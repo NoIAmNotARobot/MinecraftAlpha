@@ -91,5 +91,11 @@
     "sounds": [
       "random/door_close"
     ]
+  },
+  "random.drr": {
+    "category": "player",
+    "sounds": [
+      "random/drr"
+    ]
   }
 }

@@ -117,7 +117,7 @@ public class AlphaItem extends Item {
 
     public AlphaItem(String name) {
         this.setCreativeTab(MinecraftAlpha.tabAlpha);
-        unlocalizedName = name;
+        this.unlocalizedName = name;
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(MinecraftAlpha.MODID + ":" + name);
     }

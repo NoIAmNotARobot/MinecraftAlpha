@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -21,6 +22,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class AlphaBlockDoor extends AlphaBlock {
+
+    @SideOnly(Side.CLIENT)
+    private IIcon topIcon;
 
     protected AlphaBlockDoor(Material material, String name) {
         super(material, name, false);
@@ -44,7 +48,7 @@ public class AlphaBlockDoor extends AlphaBlock {
                  * var5 = -var5;
                  * }
                  */
-                return null;// var5;
+                return this.blockIcon;// var5;
             }
         } else {
             return this.blockIcon;
@@ -243,5 +247,11 @@ public class AlphaBlockDoor extends AlphaBlock {
         return var3 < 127 && var1.isBlockNormalCubeDefault(var2, var3 - 1, var4, false)
             && super.canPlaceBlockAt(var1, var2, var3, var4)
             && super.canPlaceBlockAt(var1, var2, var3 + 1, var4);
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister reg) {
+        this.blockIcon = reg.registerIcon(this.getTextureName() + "_bottom");
+        this.topIcon = reg.registerIcon(this.getTextureName() + "_top");
     }
 }

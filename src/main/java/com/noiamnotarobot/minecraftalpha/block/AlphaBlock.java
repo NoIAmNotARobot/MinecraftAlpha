@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+import com.noiamnotarobot.minecraftalpha.block.entity.AlphaTileEntities;
 import com.noiamnotarobot.minecraftalpha.block.sound.AlphaStepSound;
 import com.noiamnotarobot.minecraftalpha.block.sound.AlphaStepSoundGlass;
 import com.noiamnotarobot.minecraftalpha.block.sound.AlphaStepSoundSand;
@@ -280,6 +281,9 @@ public class AlphaBlock extends Block {
             blocksRegistered++;
         }
         MinecraftAlpha.LOG.info("Registered {} blocks!", blocksRegistered);
+        MinecraftAlpha.LOG.info(
+            "Of these, {} had tile entities that were successfully registered!",
+            AlphaTileEntities.registerTileEntities());
     }
 
     @Override

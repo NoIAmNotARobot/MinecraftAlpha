@@ -13,9 +13,6 @@ import com.noiamnotarobot.minecraftalpha.block.AlphaBlockFurnace;
 public class AlphaTileEntityFurnace extends TileEntityFurnace {
 
     private ItemStack[] furnaceItemStacks = new ItemStack[3];
-    public int furnaceBurnTime = 0;
-    public int currentItemBurnTime = 0;
-    public int furnaceCookTime = 0;
 
     public int getSizeInventory() {
         return this.furnaceItemStacks.length;
