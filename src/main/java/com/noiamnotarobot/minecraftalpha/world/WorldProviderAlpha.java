@@ -1,5 +1,7 @@
 package com.noiamnotarobot.minecraftalpha.world;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.Chunk;
@@ -7,9 +9,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 import com.noiamnotarobot.minecraftalpha.Config;
 import com.noiamnotarobot.minecraftalpha.MinecraftAlpha;
+import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
 import com.noiamnotarobot.minecraftalpha.world.gen.ChunkProviderAlpha;
 
-// TODO: Fix winter mode, as it currently shows rain particles when its actually snowing.
 public class WorldProviderAlpha extends WorldProviderSurface {
 
     public final String saveFolder;
@@ -87,6 +89,16 @@ public class WorldProviderAlpha extends WorldProviderSurface {
 
     @Override
     public boolean canSnowAt(int x, int y, int z, boolean checkLight) {
-        return Config.snowCovered;
+        if (Config.snowCovered) {
+            if (!checkLight) {
+                return true;
+            } else {
+                if (y >= 0 && y < 256 && worldObj.getSavedLightValue(EnumSkyBlock.Block, x, y, z) < 10) {
+                    return worldObj.getBlock(x, y, z)
+                        .getMaterial() == Material.air && AlphaBlock.snow.canPlaceBlockAt(worldObj, x, y, z);
+                }
+                return false;
+            }
+        } else return false;
     }
 }
