@@ -204,7 +204,9 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock jukebox = (AlphaBlock) new AlphaBlockJukeBox().setHardness(2.0F)
         .setResistance(5.0F)
         .setStepSound(soundWoodFootstep);
-    // fence
+    public static final Block fence = new AlphaBlockFence().setHardness(2.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundWoodFootstep);
 
     protected String unlocalizedName;
 
@@ -273,6 +275,7 @@ public class AlphaBlock extends Block {
         blocksList.add(blockClay);
         blocksList.add(reed);
         blocksList.add(jukebox);
+        blocksList.add(fence);
 
         MinecraftAlpha.LOG.info("Registering blocks...");
         int blocksRegistered = 0;
