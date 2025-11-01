@@ -183,8 +183,16 @@ public class AlphaBlock extends Block {
         BlockPressurePlate.Sensitivity.mobs,
         planks.getTextureName())).setHardness(0.5F)
             .setStepSound(soundWoodFootstep);
-    public static final Block oreRedstone = Blocks.redstone_ore;
-    public static final Block oreRedstoneGlowing = Blocks.lit_redstone_ore;
+    public static final AlphaBlock oreRedstone = (AlphaBlock) new AlphaBlockRedstoneOre("oreRedstone", false)
+        .setHardness(3.0F)
+        .setResistance(5.0F)
+        .setStepSound(soundStoneFootstep);
+    public static final AlphaBlock oreRedstoneGlowing = (AlphaBlock) new AlphaBlockRedstoneOre(
+        "oreRedstoneGlowing",
+        true).setLightLevel(10F / 16F)
+            .setHardness(3.0F)
+            .setResistance(5.0F)
+            .setStepSound(soundStoneFootstep);
     // torchRedstoneIdle
     // torchRedstoneActive
     // button
@@ -268,6 +276,8 @@ public class AlphaBlock extends Block {
         blocksList.add(pressurePlateStone);
         blocksList.add(doorIron);
         blocksList.add(pressurePlateWood);
+        blocksList.add(oreRedstone);
+        blocksList.add(oreRedstoneGlowing);
         blocksList.add(snow);
         blocksList.add(ice);
         blocksList.add(blockSnow);
