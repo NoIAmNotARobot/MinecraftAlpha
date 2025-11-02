@@ -97,5 +97,11 @@
     "sounds": [
       "random/drr"
     ]
+  },
+  "random.fuse": {
+    "category": "block",
+    "sounds": [
+      "random/fuse"
+    ]
   }
 }

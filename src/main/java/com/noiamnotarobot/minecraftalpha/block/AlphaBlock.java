@@ -121,7 +121,8 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock brick = (AlphaBlock) new AlphaBlock(Material.rock, "brick").setHardness(2.0F)
         .setResistance(10.0F)
         .setStepSound(soundStoneFootstep);
-    public static final Block tnt = Blocks.tnt;
+    public static final AlphaBlock tnt = (AlphaBlock) new AlphaBlockTNT().setHardness(0.0F)
+        .setStepSound(soundGrassFootstep);
     public static final AlphaBlock bookshelf = (AlphaBlock) new AlphaBlockBookshelf().setHardness(1.5F)
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlock cobblestoneMossy = (AlphaBlock) new AlphaBlock(Material.rock, "cobblestoneMossy")
@@ -142,7 +143,8 @@ public class AlphaBlock extends Block {
     // stairCompactWood
     public static final AlphaBlock chest = (AlphaBlock) new AlphaBlockChest().setHardness(2.5F)
         .setStepSound(soundWoodFootstep);
-    // redstoneWire
+    public static final AlphaBlock redstoneWire = (AlphaBlock) new AlphaBlockRedstoneWire().setHardness(0.0F)
+        .setStepSound(soundPowderFootstep);
     public static final AlphaBlock oreDiamond = (AlphaBlock) new AlphaBlockOre("oreDiamond").setHardness(3.0F)
         .setResistance(5.0F)
         .setStepSound(soundStoneFootstep);
@@ -257,6 +259,7 @@ public class AlphaBlock extends Block {
         blocksList.add(stairDouble);
         blocksList.add(stairSingle);
         blocksList.add(brick);
+        blocksList.add(tnt);
         blocksList.add(bookshelf);
         blocksList.add(cobblestoneMossy);
         blocksList.add(obsidian);
@@ -264,6 +267,7 @@ public class AlphaBlock extends Block {
         blocksList.add(fire);
         blocksList.add(mobSpawner);
         blocksList.add(chest);
+        blocksList.add(redstoneWire);
         blocksList.add(oreDiamond);
         blocksList.add(blockDiamond);
         blocksList.add(workbench);

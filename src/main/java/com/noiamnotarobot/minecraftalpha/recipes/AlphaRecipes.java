@@ -94,8 +94,15 @@ public class AlphaRecipes {
         // AlphaItem.stick);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.torchRedstoneActive, 1), new Object[]{"X", "#", '#',
         // AlphaItem.stick, 'X', AlphaItem.redstone});
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.compass, 1), new Object[]{" # ", "#X#", " # ", '#',
-        // AlphaItem.ingotIron, 'X', AlphaItem.redstone});
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaItem.compass, 1),
+            " # ",
+            "#X#",
+            " # ",
+            '#',
+            AlphaItem.ingotIron,
+            'X',
+            AlphaItem.redstone);
         // GameRegistry.addRecipe(new ItemStack(AlphaBlock.button, 1), "#", "#", '#', AlphaBlock.stone);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateStone, 1), "###", '#', AlphaBlock.stone);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateWood, 1), "###", '#', AlphaBlock.planks);

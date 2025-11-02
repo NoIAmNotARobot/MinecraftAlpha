@@ -108,7 +108,7 @@ public class AlphaItem extends Item {
     // minecartBox
     // minecartEngine
     // egg
-    // compass
+    public static AlphaItem compass = new AlphaItem("compass");
     // fishingRod
     public static AlphaItem record13 = new AlphaItemRecord("record13", "records.13");
     public static AlphaItem recordCat = new AlphaItemRecord("recordCat", "records.cat");
@@ -210,6 +210,7 @@ public class AlphaItem extends Item {
         itemsList.add(paper);
         itemsList.add(book);
         itemsList.add(slimeBall);
+        itemsList.add(compass);
         itemsList.add(record13);
         itemsList.add(recordCat);
 
