@@ -132,7 +132,7 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock obsidian = (AlphaBlock) new AlphaBlock(Material.rock, "obsidian").setHardness(10.0F)
         .setResistance(2000.0F)
         .setStepSound(soundStoneFootstep);
-    public static final AlphaBlock torch = (AlphaBlock) new AlphaBlockTorch().setHardness(0.0F)
+    public static final AlphaBlock torch = (AlphaBlock) new AlphaBlockTorch("torch").setHardness(0.0F)
         .setLightLevel(15.0F / 16.0F)
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlockFire fire = (AlphaBlockFire) new AlphaBlockFire().setHardness(0.0F)
@@ -173,7 +173,8 @@ public class AlphaBlock extends Block {
     // minecartTrack
     // stairCompactStone
     // signWall
-    // lever
+    public static final AlphaBlock lever = (AlphaBlock) (new AlphaBlockLever()).setHardness(0.5F)
+        .setStepSound(soundWoodFootstep);
     public static final AlphaBlock pressurePlateStone = (AlphaBlock) (new AlphaBlockPressurePlate(
         "pressurePlateStone",
         BlockPressurePlate.Sensitivity.mobs,
@@ -195,9 +196,17 @@ public class AlphaBlock extends Block {
             .setHardness(3.0F)
             .setResistance(5.0F)
             .setStepSound(soundStoneFootstep);
-    // torchRedstoneIdle
-    // torchRedstoneActive
-    // button
+    public static final AlphaBlock torchRedstoneIdle = (AlphaBlock) (new AlphaBlockRedstoneTorch(
+        "torchRedstoneIdle",
+        false)).setHardness(0.0F)
+            .setStepSound(soundWoodFootstep);
+    public static final AlphaBlock torchRedstoneActive = (AlphaBlock) (new AlphaBlockRedstoneTorch(
+        "torchRedstoneActive",
+        true)).setHardness(0.0F)
+            .setLightLevel(0.5F)
+            .setStepSound(soundWoodFootstep);
+    public static final AlphaBlock button = (AlphaBlock) (new AlphaBlockButton()).setHardness(0.5F)
+        .setStepSound(soundStoneFootstep);
     public static final AlphaBlock snow = (AlphaBlock) new AlphaBlockSnow().setHardness(0.1F)
         .setStepSound(soundClothFootstep);
     public static final AlphaBlock ice = (AlphaBlock) new AlphaBlockIce().setHardness(0.5F)
@@ -277,11 +286,15 @@ public class AlphaBlock extends Block {
         blocksList.add(stoneOvenActive);
         blocksList.add(doorWood);
         blocksList.add(ladder);
+        blocksList.add(lever);
         blocksList.add(pressurePlateStone);
         blocksList.add(doorIron);
         blocksList.add(pressurePlateWood);
         blocksList.add(oreRedstone);
         blocksList.add(oreRedstoneGlowing);
+        blocksList.add(torchRedstoneIdle);
+        blocksList.add(torchRedstoneActive);
+        blocksList.add(button);
         blocksList.add(snow);
         blocksList.add(ice);
         blocksList.add(blockSnow);

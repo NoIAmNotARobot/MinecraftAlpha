@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 
 public class AlphaBlockTorch extends AlphaBlock {
 
-    protected AlphaBlockTorch() {
-        super(Material.circuits, "torch");
+    protected AlphaBlockTorch(String name) {
+        super(Material.circuits, name);
         this.setTickRandomly(true);
     }
 

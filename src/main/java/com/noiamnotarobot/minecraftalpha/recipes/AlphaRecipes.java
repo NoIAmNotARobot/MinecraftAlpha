@@ -90,10 +90,16 @@ public class AlphaRecipes {
             AlphaBlock.blockGold,
             'X',
             AlphaItem.appleRed);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.lever, 1), "X", "#", '#', AlphaBlock.cobblestone, 'X',
-        // AlphaItem.stick);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.torchRedstoneActive, 1), new Object[]{"X", "#", '#',
-        // AlphaItem.stick, 'X', AlphaItem.redstone});
+        GameRegistry
+            .addRecipe(new ItemStack(AlphaBlock.lever, 1), "X", "#", '#', AlphaBlock.cobblestone, 'X', AlphaItem.stick);
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaBlock.torchRedstoneActive, 1),
+            "X",
+            "#",
+            '#',
+            AlphaItem.stick,
+            'X',
+            AlphaItem.redstone);
         GameRegistry.addRecipe(
             new ItemStack(AlphaItem.compass, 1),
             " # ",
@@ -103,7 +109,7 @@ public class AlphaRecipes {
             AlphaItem.ingotIron,
             'X',
             AlphaItem.redstone);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.button, 1), "#", "#", '#', AlphaBlock.stone);
+        GameRegistry.addRecipe(new ItemStack(AlphaBlock.button, 1), "#", "#", '#', AlphaBlock.stone);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateStone, 1), "###", '#', AlphaBlock.stone);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.pressurePlateWood, 1), "###", '#', AlphaBlock.planks);
 

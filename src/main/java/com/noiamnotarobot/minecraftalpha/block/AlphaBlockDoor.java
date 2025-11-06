@@ -40,15 +40,18 @@ public class AlphaBlockDoor extends AlphaBlock {
             if ((var3 == 0 || var3 == 2) ^ side <= 3) {
                 return this.blockIcon;
             } else {
-                /*
-                 * int var4 = var3 / 2 + (side & 1 ^ var3);
-                 * var4 += (meta & 4) / 4;
-                 * int var5 = this.blockIndexInTexture - (meta & 8) * 2;
-                 * if ((var4 & 1) != 0) {
-                 * var5 = -var5;
-                 * }
-                 */
-                return this.blockIcon;// var5;
+                int var4 = var3 / 2 + (side & 1 ^ var3);
+                var4 += (meta & 4) / 4;
+                int var5 = 256 - (meta & 8) * 2;
+                if ((var4 & 1) != 0) {
+                    var5 = -var5;
+                }
+
+                return switch (var5) {
+                    case 240 -> this.topIcon;
+                    case 256 -> this.blockIcon;
+                    default -> AlphaBlock.fire.getIcon(side, meta);
+                };
             }
         } else {
             return this.blockIcon;

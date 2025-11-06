@@ -103,5 +103,11 @@
     "sounds": [
       "random/fuse"
     ]
+  },
+  "random.fizz": {
+    "category": "block",
+    "sounds": [
+      "random/fizz"
+    ]
   }
 }
