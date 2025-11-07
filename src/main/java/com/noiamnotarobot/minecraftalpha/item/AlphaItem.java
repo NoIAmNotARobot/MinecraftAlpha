@@ -86,7 +86,7 @@ public class AlphaItem extends Item {
     public static AlphaItem porkCooked = new AlphaItemFood("porkCooked", 8);
     // painting
     public static AlphaItem appleGold = new AlphaItemFood("appleGold", 42);
-    // sign
+    public static AlphaItem sign = new AlphaItemSign();
     public static AlphaItem doorWood = new AlphaItemDoor("doorWood", Material.wood);
     public static AlphaItem bucketEmpty = new AlphaItemBucket("bucketEmpty", Blocks.air);
     public static AlphaItem bucketWater = new AlphaItemBucket("bucketWater", AlphaBlock.waterStill);
@@ -194,6 +194,7 @@ public class AlphaItem extends Item {
         itemsList.add(porkRaw);
         itemsList.add(porkCooked);
         itemsList.add(appleGold);
+        itemsList.add(sign);
         itemsList.add(doorWood);
         itemsList.add(bucketEmpty);
         itemsList.add(bucketWater);

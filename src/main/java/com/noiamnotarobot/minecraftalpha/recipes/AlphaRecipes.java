@@ -55,8 +55,7 @@ public class AlphaRecipes {
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.ladder, 1), "# #", "###", "# #", '#', AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.doorWood, 1), "##", "##", "##", '#', AlphaBlock.planks);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.doorIron, 1), "##", "##", "##", '#', AlphaItem.ingotIron);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.sign, 1), "###", "###", " X ", '#', AlphaBlock.planks, 'X',
-        // AlphaItem.stick);
+        GameRegistry.addRecipe(new ItemStack(AlphaItem.sign, 1), "###", "###", " X ", '#', AlphaBlock.planks, 'X', AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.planks, 4), "#", '#', AlphaBlock.wood);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.stick, 4), "#", "#", '#', AlphaBlock.planks);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.torch, 4), "X", "#", 'X', AlphaItem.coal, '#', AlphaItem.stick);

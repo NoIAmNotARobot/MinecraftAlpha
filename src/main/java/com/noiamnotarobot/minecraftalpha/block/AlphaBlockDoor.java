@@ -48,9 +48,8 @@ public class AlphaBlockDoor extends AlphaBlock {
                 }
 
                 return switch (var5) {
-                    case 240 -> this.topIcon;
-                    case 256 -> this.blockIcon;
-                    default -> AlphaBlock.fire.getIcon(side, meta);
+                    case 240, -240 -> this.topIcon;
+                    default -> this.blockIcon;
                 };
             }
         } else {
