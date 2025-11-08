@@ -91,7 +91,7 @@ public class AlphaItem extends Item {
     public static AlphaItem bucketEmpty = new AlphaItemBucket("bucketEmpty", Blocks.air);
     public static AlphaItem bucketWater = new AlphaItemBucket("bucketWater", AlphaBlock.waterStill);
     public static AlphaItem bucketLava = new AlphaItemBucket("bucketLava", AlphaBlock.lavaStill, 20000);
-    // minecartEmpty
+    public static AlphaItem minecartEmpty = new AlphaItem("minecartEmpty");
     public static AlphaItem saddle = new AlphaItemSaddle();
     public static AlphaItem doorIron = new AlphaItemDoor("doorIron", Material.iron);
     public static AlphaItem redstone = new AlphaItemRedstone();
@@ -105,8 +105,8 @@ public class AlphaItem extends Item {
     public static AlphaItem paper = new AlphaItem("paper");
     public static AlphaItem book = new AlphaItem("book");
     public static AlphaItem slimeBall = new AlphaItem("slimeBall");
-    // minecartBox
-    // minecartEngine
+    public static AlphaItem minecartBox = new AlphaItem("minecartBox");
+    public static AlphaItem minecartEngine = new AlphaItem("minecartEngine");
     // egg
     public static AlphaItem compass = new AlphaItem("compass");
     // fishingRod
@@ -199,6 +199,7 @@ public class AlphaItem extends Item {
         itemsList.add(bucketEmpty);
         itemsList.add(bucketWater);
         itemsList.add(bucketLava);
+        itemsList.add(minecartEmpty);
         itemsList.add(saddle);
         itemsList.add(doorIron);
         itemsList.add(redstone);
@@ -211,6 +212,8 @@ public class AlphaItem extends Item {
         itemsList.add(paper);
         itemsList.add(book);
         itemsList.add(slimeBall);
+        itemsList.add(minecartBox);
+        itemsList.add(minecartEngine);
         itemsList.add(compass);
         itemsList.add(record13);
         itemsList.add(recordCat);

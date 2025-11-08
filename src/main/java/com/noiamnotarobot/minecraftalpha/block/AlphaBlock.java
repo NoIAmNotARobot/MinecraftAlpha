@@ -141,7 +141,7 @@ public class AlphaBlock extends Block {
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlock mobSpawner = (AlphaBlock) new AlphaBlockMobSpawner().setHardness(5.0F)
         .setStepSound(soundMetalFootstep);
-    // public static final Block stairCompactWood = new AlphaBlockStairs("stairCompactWood", planks);
+    public static final Block stairCompactWood = new AlphaBlockStairs("stairCompactWood", planks);
     public static final AlphaBlock chest = (AlphaBlock) new AlphaBlockChest().setHardness(2.5F)
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlock redstoneWire = (AlphaBlock) new AlphaBlockRedstoneWire().setHardness(0.0F)
@@ -176,7 +176,7 @@ public class AlphaBlock extends Block {
     public static final AlphaBlock ladder = (AlphaBlock) new AlphaBlockLadder().setHardness(0.4F)
         .setStepSound(soundWoodFootstep);
     // minecartTrack
-    // public static final Block stairCompactStone = new AlphaBlockStairs("stairCompactStone", cobblestone);
+    public static final Block stairCompactStone = new AlphaBlockStairs("stairCompactStone", cobblestone);
     public static final AlphaBlock signWall = (AlphaBlock) (new AlphaBlockSign("signWall", TileEntitySign.class, false))
         .setHardness(1.0F)
         .setStepSound(soundWoodFootstep);
@@ -282,7 +282,7 @@ public class AlphaBlock extends Block {
         blocksList.add(torch);
         blocksList.add(fire);
         blocksList.add(mobSpawner);
-        // blocksList.add(stairCompactWood);
+        blocksList.add(stairCompactWood);
         blocksList.add(chest);
         blocksList.add(redstoneWire);
         blocksList.add(oreDiamond);
@@ -295,7 +295,7 @@ public class AlphaBlock extends Block {
         blocksList.add(signStanding);
         blocksList.add(doorWood);
         blocksList.add(ladder);
-        // blocksList.add(stairCompactStone);
+        blocksList.add(stairCompactStone);
         blocksList.add(signWall);
         blocksList.add(lever);
         blocksList.add(pressurePlateStone);
