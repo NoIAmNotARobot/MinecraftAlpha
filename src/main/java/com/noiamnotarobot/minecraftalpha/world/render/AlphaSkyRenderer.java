@@ -162,12 +162,12 @@ public class AlphaSkyRenderer extends IRenderHandler {
         var12.addVertexWithUV((-var10), 100.0D, var10, 0.0D, 1.0D);
         var12.draw();
         var10 = 20.0F;
-        // GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/terrain/moon.png"));
+        mc.renderEngine.bindTexture(new ResourceLocation("textures/environment/moon_phases.png"));
         var12.startDrawingQuads();
-        var12.addVertexWithUV((-var10), -100.0D, var10, 1.0D, 1.0D);
-        var12.addVertexWithUV(var10, -100.0D, var10, 0.0D, 1.0D);
+        var12.addVertexWithUV((-var10), -100.0D, var10, 0.25D, 0.5D);
+        var12.addVertexWithUV(var10, -100.0D, var10, 0.0D, 0.5D);
         var12.addVertexWithUV(var10, -100.0D, (-var10), 0.0D, 0.0D);
-        var12.addVertexWithUV((-var10), -100.0D, (-var10), 1.0D, 0.0D);
+        var12.addVertexWithUV((-var10), -100.0D, (-var10), 0.25D, 0.0D);
         var12.draw();
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         float var11 = world.getStarBrightness(var1);
