@@ -175,7 +175,8 @@ public class AlphaBlock extends Block {
         .setStepSound(soundWoodFootstep);
     public static final AlphaBlock ladder = (AlphaBlock) new AlphaBlockLadder().setHardness(0.4F)
         .setStepSound(soundWoodFootstep);
-    // minecartTrack
+    public static final AlphaBlock minecartTrack = (AlphaBlock) new AlphaBlockMinecartTrack().setHardness(0.7F)
+        .setStepSound(soundMetalFootstep);
     public static final Block stairCompactStone = new AlphaBlockStairs("stairCompactStone", cobblestone);
     public static final AlphaBlock signWall = (AlphaBlock) (new AlphaBlockSign("signWall", TileEntitySign.class, false))
         .setHardness(1.0F)
@@ -295,6 +296,7 @@ public class AlphaBlock extends Block {
         blocksList.add(signStanding);
         blocksList.add(doorWood);
         blocksList.add(ladder);
+        blocksList.add(minecartTrack);
         blocksList.add(stairCompactStone);
         blocksList.add(signWall);
         blocksList.add(lever);

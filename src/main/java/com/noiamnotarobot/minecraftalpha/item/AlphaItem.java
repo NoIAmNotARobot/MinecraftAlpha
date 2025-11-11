@@ -61,26 +61,26 @@ public class AlphaItem extends Item {
     public static AlphaItem seeds = new AlphaItemSeeds(AlphaBlock.crops);
     public static AlphaItem wheat = new AlphaItem("wheat");
     public static AlphaItem bread = new AlphaItemFood("bread", 5);
-    public static AlphaItem helmetLeather = new AlphaItemArmor("helmetLeather", 0, 0, 0);
-    public static AlphaItem plateLeather = new AlphaItemArmor("plateLeather", 0, 0, 1);
-    public static AlphaItem legsLeather = new AlphaItemArmor("legsLeather", 0, 0, 2);
-    public static AlphaItem bootsLeather = new AlphaItemArmor("bootsLeather", 0, 0, 3);
-    public static AlphaItem helmetChain = new AlphaItemArmor("helmetChain", 1, 1, 0);
-    public static AlphaItem plateChain = new AlphaItemArmor("plateChain", 1, 1, 1);
-    public static AlphaItem legsChain = new AlphaItemArmor("legsChain", 1, 1, 2);
-    public static AlphaItem bootsChain = new AlphaItemArmor("bootsChain", 1, 1, 3);
-    public static AlphaItem helmetIron = new AlphaItemArmor("helmetIron", 2, 2, 0);
-    public static AlphaItem plateIron = new AlphaItemArmor("plateIron", 2, 2, 1);
-    public static AlphaItem legsIron = new AlphaItemArmor("legsIron", 2, 2, 2);
-    public static AlphaItem bootsIron = new AlphaItemArmor("bootsIron", 2, 2, 3);
-    public static AlphaItem helmetDiamond = new AlphaItemArmor("helmetDiamond", 3, 3, 0);
-    public static AlphaItem plateDiamond = new AlphaItemArmor("plateDiamond", 3, 3, 1);
-    public static AlphaItem legsDiamond = new AlphaItemArmor("legsDiamond", 3, 3, 2);
-    public static AlphaItem bootsDiamond = new AlphaItemArmor("bootsDiamond", 3, 3, 3);
-    public static AlphaItem helmetGold = new AlphaItemArmor("helmetGold", 1, 4, 0);
-    public static AlphaItem plateGold = new AlphaItemArmor("plateGold", 1, 4, 1);
-    public static AlphaItem legsGold = new AlphaItemArmor("legsGold", 1, 4, 2);
-    public static AlphaItem bootsGold = new AlphaItemArmor("bootsGold", 1, 4, 3);
+    public static Item helmetLeather = new AlphaItemArmor("helmetLeather", 0, 0, 0);
+    public static Item plateLeather = new AlphaItemArmor("plateLeather", 0, 0, 1);
+    public static Item legsLeather = new AlphaItemArmor("legsLeather", 0, 0, 2);
+    public static Item bootsLeather = new AlphaItemArmor("bootsLeather", 0, 0, 3);
+    public static Item helmetChain = new AlphaItemArmor("helmetChain", 1, 1, 0);
+    public static Item plateChain = new AlphaItemArmor("plateChain", 1, 1, 1);
+    public static Item legsChain = new AlphaItemArmor("legsChain", 1, 1, 2);
+    public static Item bootsChain = new AlphaItemArmor("bootsChain", 1, 1, 3);
+    public static Item helmetIron = new AlphaItemArmor("helmetIron", 2, 2, 0);
+    public static Item plateIron = new AlphaItemArmor("plateIron", 2, 2, 1);
+    public static Item legsIron = new AlphaItemArmor("legsIron", 2, 2, 2);
+    public static Item bootsIron = new AlphaItemArmor("bootsIron", 2, 2, 3);
+    public static Item helmetDiamond = new AlphaItemArmor("helmetDiamond", 3, 3, 0);
+    public static Item plateDiamond = new AlphaItemArmor("plateDiamond", 3, 3, 1);
+    public static Item legsDiamond = new AlphaItemArmor("legsDiamond", 3, 3, 2);
+    public static Item bootsDiamond = new AlphaItemArmor("bootsDiamond", 3, 3, 3);
+    public static Item helmetGold = new AlphaItemArmor("helmetGold", 1, 4, 0);
+    public static Item plateGold = new AlphaItemArmor("plateGold", 1, 4, 1);
+    public static Item legsGold = new AlphaItemArmor("legsGold", 1, 4, 2);
+    public static Item bootsGold = new AlphaItemArmor("bootsGold", 1, 4, 3);
     public static AlphaItem flint = new AlphaItem("flint");
     public static AlphaItem porkRaw = new AlphaItemFood("porkRaw", 3);
     public static AlphaItem porkCooked = new AlphaItemFood("porkCooked", 8);
@@ -107,11 +107,13 @@ public class AlphaItem extends Item {
     public static AlphaItem slimeBall = new AlphaItem("slimeBall");
     public static AlphaItem minecartBox = new AlphaItem("minecartBox");
     public static AlphaItem minecartEngine = new AlphaItem("minecartEngine");
-    // egg
+    public static AlphaItem egg = new AlphaItem("egg");
     public static AlphaItem compass = new AlphaItem("compass");
     // fishingRod
     public static AlphaItem record13 = new AlphaItemRecord("record13", "records.13");
     public static AlphaItem recordCat = new AlphaItemRecord("recordCat", "records.cat");
+
+    public static Item teleporter = new ItemTeleporter();
 
     protected String unlocalizedName;
 
@@ -193,6 +195,7 @@ public class AlphaItem extends Item {
         itemsList.add(flint);
         itemsList.add(porkRaw);
         itemsList.add(porkCooked);
+        // itemsList.add(painting);
         itemsList.add(appleGold);
         itemsList.add(sign);
         itemsList.add(doorWood);
@@ -204,6 +207,7 @@ public class AlphaItem extends Item {
         itemsList.add(doorIron);
         itemsList.add(redstone);
         itemsList.add(snowball);
+        // itemsList.add(boat);
         itemsList.add(leather);
         itemsList.add(bucketMilk);
         itemsList.add(brick);
@@ -214,9 +218,13 @@ public class AlphaItem extends Item {
         itemsList.add(slimeBall);
         itemsList.add(minecartBox);
         itemsList.add(minecartEngine);
+        itemsList.add(egg);
         itemsList.add(compass);
+        // itemsList.add(fishingRod);
         itemsList.add(record13);
         itemsList.add(recordCat);
+
+        itemsList.add(teleporter);
 
         MinecraftAlpha.LOG.info("Registering items...");
         int itemsRegistered = 0;

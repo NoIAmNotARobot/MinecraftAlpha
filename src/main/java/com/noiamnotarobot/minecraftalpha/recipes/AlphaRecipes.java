@@ -68,8 +68,15 @@ public class AlphaRecipes {
         GameRegistry.addRecipe(new ItemStack(AlphaItem.stick, 4), "#", "#", '#', AlphaBlock.planks);
         GameRegistry.addRecipe(new ItemStack(AlphaBlock.torch, 4), "X", "#", 'X', AlphaItem.coal, '#', AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.bowlEmpty, 4), "# #", " # ", '#', AlphaBlock.planks);
-        // GameRegistry.addRecipe(new ItemStack(AlphaBlock.minecartTrack, 16), "X X", "X#X", "X X", 'X',
-        // AlphaItem.ingotIron, '#', AlphaItem.stick);
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaBlock.minecartTrack, 16),
+            "X X",
+            "X#X",
+            "X X",
+            'X',
+            AlphaItem.ingotIron,
+            '#',
+            AlphaItem.stick);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.minecartEmpty, 1), "# #", "###", '#', AlphaItem.ingotIron);
         GameRegistry.addRecipe(
             new ItemStack(AlphaItem.minecartBox, 1),

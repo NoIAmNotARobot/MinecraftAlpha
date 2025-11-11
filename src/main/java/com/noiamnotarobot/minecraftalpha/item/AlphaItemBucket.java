@@ -34,7 +34,8 @@ public class AlphaItemBucket extends AlphaItem implements IFuelHandler {
         float var5 = var3.prevRotationPitch + (var3.rotationPitch - var3.prevRotationPitch) * var4;
         float var6 = var3.prevRotationYaw + (var3.rotationYaw - var3.prevRotationYaw) * var4;
         double var7 = var3.prevPosX + (var3.posX - var3.prevPosX) * (double) var4;
-        double var9 = var3.prevPosY + (var3.posY - var3.prevPosY) * (double) var4;
+        double var9 = var3.prevPosY + (var3.posY - var3.prevPosY) * (double) var4
+            + (double) (var2.isRemote ? var3.getEyeHeight() - var3.getDefaultEyeHeight() : var3.getEyeHeight());
         double var11 = var3.prevPosZ + (var3.posZ - var3.prevPosZ) * (double) var4;
         Vec3 var13 = Vec3.createVectorHelper(var7, var9, var11);
         float var14 = MathHelper.cos(-var6 * ((float) Math.PI / 180.0F) - (float) Math.PI);
@@ -55,14 +56,14 @@ public class AlphaItemBucket extends AlphaItem implements IFuelHandler {
                     if ((var2.getBlock(var25, var26, var27) == AlphaBlock.waterStill
                         || var2.getBlock(var25, var26, var27) == AlphaBlock.waterMoving)
                         && var2.getBlockMetadata(var25, var26, var27) == 0) {
-                        var2.setBlock(var25, var26, var27, Blocks.air);
+                        var2.setBlockToAir(var25, var26, var27);
                         return new ItemStack(AlphaItem.bucketWater);
                     }
 
                     if ((var2.getBlock(var25, var26, var27) == AlphaBlock.lavaStill
                         || var2.getBlock(var25, var26, var27) == AlphaBlock.lavaMoving)
                         && var2.getBlockMetadata(var25, var26, var27) == 0) {
-                        var2.setBlock(var25, var26, var27, Blocks.air);
+                        var2.setBlockToAir(var25, var26, var27);
                         return new ItemStack(AlphaItem.bucketLava);
                     }
                 } else {

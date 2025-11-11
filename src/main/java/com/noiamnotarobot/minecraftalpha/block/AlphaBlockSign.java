@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -136,7 +135,7 @@ public class AlphaBlockSign extends AlphaBlockContainer {
 
         if (var6) {
             this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
         }
 
         super.onNeighborBlockChange(var1, var2, var3, var4, var5);

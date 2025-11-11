@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -52,7 +51,7 @@ public class AlphaBlockStep extends AlphaBlock {
 
         Block var5 = var1.getBlock(var2, var3 - 1, var4);
         if (var5 == AlphaBlock.stairSingle) {
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
             var1.setBlock(var2, var3 - 1, var4, AlphaBlock.stairDouble);
         }
 

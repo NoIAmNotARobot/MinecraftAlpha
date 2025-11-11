@@ -57,11 +57,11 @@ public class AlphaWorldGenDungeons extends AlphaWorldGenerator {
                             && var10 != var3 + var7 + 1
                             && var11 != var4 + var6 + 1
                             && var12 != var5 + var8 + 1) {
-                            var1.setBlock(var10, var11, var12, Blocks.air);
+                            var1.setBlockToAir(var10, var11, var12);
                         } else if (var11 >= 0 && !var1.getBlock(var10, var11 - 1, var12)
                             .getMaterial()
                             .isSolid()) {
-                                var1.setBlock(var10, var11, var12, Blocks.air);
+                                var1.setBlockToAir(var10, var11, var12);
                             } else if (var1.getBlock(var10, var11, var12)
                                 .getMaterial()
                                 .isSolid()) {

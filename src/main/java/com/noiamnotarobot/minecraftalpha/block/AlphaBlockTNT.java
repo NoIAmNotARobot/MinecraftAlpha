@@ -34,7 +34,7 @@ public class AlphaBlockTNT extends AlphaBlock {
     public void onNeighborBlockChange(World var1, int var2, int var3, int var4, Block var5) {
         if (var5 != Blocks.air && var5.canProvidePower() && var1.isBlockIndirectlyGettingPowered(var2, var3, var4)) {
             this.onBlockDestroyedByPlayer(var1, var2, var3, var4, 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
         }
 
     }

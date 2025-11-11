@@ -1,0 +1,9 @@
+{
+  "package": "com.noiamnotarobot.minecraftalpha.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinInventoryPlayer"
+  ],
+  "client": [],
+  "server": []
+}

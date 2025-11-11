@@ -245,7 +245,7 @@ public class AlphaBlockRedstoneWire extends AlphaBlock {
         boolean var7 = this.canPlaceBlockAt(var1, var2, var3, var4);
         if (!var7) {
             this.dropBlockAsItem(var1, var2, var3, var4, var6, 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
         } else {
             this.updateAndPropagateCurrentStrength(var1, var2, var3, var4);
         }

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
@@ -118,7 +117,7 @@ public class AlphaBlockTorch extends AlphaBlock {
 
             if (var7) {
                 this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
-                var1.setBlock(var2, var3, var4, Blocks.air);
+                var1.setBlockToAir(var2, var3, var4);
             }
         }
 
@@ -127,7 +126,7 @@ public class AlphaBlockTorch extends AlphaBlock {
     private boolean checkIfAttachedToBlock(World var1, int var2, int var3, int var4) {
         if (!this.canPlaceBlockAt(var1, var2, var3, var4)) {
             this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
             return false;
         } else {
             return true;

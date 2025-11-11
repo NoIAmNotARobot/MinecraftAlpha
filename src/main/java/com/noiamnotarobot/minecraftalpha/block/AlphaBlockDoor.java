@@ -110,16 +110,13 @@ public class AlphaBlockDoor extends AlphaBlock {
 
     public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer var5, int side, float subX,
         float subY, float subZ) {
-        if (this.getMaterial() == Material.iron) {
-            return true;
-        } else {
+        if (this.getMaterial() != Material.iron) {
             int var6 = var1.getBlockMetadata(var2, var3, var4);
             if ((var6 & 8) != 0) {
                 if (var1.getBlock(var2, var3 - 1, var4) == this) {
                     this.onBlockClicked(var1, var2, var3 - 1, var4, var5);
                 }
 
-                return true;
             } else {
                 if (var1.getBlock(var2, var3 + 1, var4) == this) {
                     var1.setBlockMetadataWithNotify(var2, var3 + 1, var4, (var6 ^ 4) + 8, 3);
@@ -146,9 +143,9 @@ public class AlphaBlockDoor extends AlphaBlock {
                         var1.rand.nextFloat() * 0.1F + 0.9F);
                 }
 
-                return true;
             }
         }
+        return true;
     }
 
     public void onPoweredBlockChange(World var1, int var2, int var3, int var4, boolean var5) {

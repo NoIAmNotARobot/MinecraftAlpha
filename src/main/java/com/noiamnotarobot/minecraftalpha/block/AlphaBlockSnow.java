@@ -51,7 +51,7 @@ public class AlphaBlockSnow extends AlphaBlock {
     private boolean canSnowStay(World var1, int var2, int var3, int var4) {
         if (!this.canPlaceBlockAt(var1, var2, var3, var4)) {
             this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
             return false;
         } else {
             return true;
@@ -72,7 +72,7 @@ public class AlphaBlockSnow extends AlphaBlock {
             new ItemStack(var6));
         var14.delayBeforeCanPickup = 10;
         world.spawnEntityInWorld(var14);
-        world.setBlock(x, y, z, Blocks.air);
+        world.setBlockToAir(x, y, z);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class AlphaBlockSnow extends AlphaBlock {
     public void updateTick(World var1, int var2, int var3, int var4, Random var5) {
         if (var1.getSavedLightValue(EnumSkyBlock.Block, var2, var3, var4) > 11) {
             this.dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4), 0);
-            var1.setBlock(var2, var3, var4, Blocks.air);
+            var1.setBlockToAir(var2, var3, var4);
         }
 
     }

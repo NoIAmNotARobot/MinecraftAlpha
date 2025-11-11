@@ -22,7 +22,6 @@ public class AlphaBlockFarmland extends AlphaBlock {
     protected AlphaBlockFarmland() {
         super(Material.grass, "tilledField", false);
         setTickRandomly(true);
-        // this.setTickOnLoad(true);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 15.0F / 16.0F, 1.0F);
         this.setLightOpacity(255);
     }
