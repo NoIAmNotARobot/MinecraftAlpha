@@ -84,7 +84,7 @@ public class AlphaItem extends Item {
     public static AlphaItem flint = new AlphaItem("flint");
     public static AlphaItem porkRaw = new AlphaItemFood("porkRaw", 3);
     public static AlphaItem porkCooked = new AlphaItemFood("porkCooked", 8);
-    // painting
+    public static AlphaItem painting = new AlphaItemPainting();
     public static AlphaItem appleGold = new AlphaItemFood("appleGold", 42);
     public static AlphaItem sign = new AlphaItemSign();
     public static AlphaItem doorWood = new AlphaItemDoor("doorWood", Material.wood);
@@ -96,7 +96,7 @@ public class AlphaItem extends Item {
     public static AlphaItem doorIron = new AlphaItemDoor("doorIron", Material.iron);
     public static AlphaItem redstone = new AlphaItemRedstone();
     public static AlphaItem snowball = new AlphaItemSnowball();
-    // boat
+    public static AlphaItem boat = new AlphaItemBoat();
     public static AlphaItem leather = new AlphaItem("leather");
     public static AlphaItem bucketMilk = new AlphaItemBucket("bucketMilk", null);
     public static AlphaItem brick = new AlphaItem("brick");
@@ -109,7 +109,7 @@ public class AlphaItem extends Item {
     public static AlphaItem minecartEngine = new AlphaItem("minecartEngine");
     public static AlphaItem egg = new AlphaItem("egg");
     public static AlphaItem compass = new AlphaItem("compass");
-    // fishingRod
+    public static AlphaItem fishingRod = new AlphaItem("fishingRod");
     public static AlphaItem record13 = new AlphaItemRecord("record13", "records.13");
     public static AlphaItem recordCat = new AlphaItemRecord("recordCat", "records.cat");
 
@@ -195,7 +195,7 @@ public class AlphaItem extends Item {
         itemsList.add(flint);
         itemsList.add(porkRaw);
         itemsList.add(porkCooked);
-        // itemsList.add(painting);
+        itemsList.add(painting);
         itemsList.add(appleGold);
         itemsList.add(sign);
         itemsList.add(doorWood);
@@ -207,7 +207,7 @@ public class AlphaItem extends Item {
         itemsList.add(doorIron);
         itemsList.add(redstone);
         itemsList.add(snowball);
-        // itemsList.add(boat);
+        itemsList.add(boat);
         itemsList.add(leather);
         itemsList.add(bucketMilk);
         itemsList.add(brick);
@@ -220,7 +220,7 @@ public class AlphaItem extends Item {
         itemsList.add(minecartEngine);
         itemsList.add(egg);
         itemsList.add(compass);
-        // itemsList.add(fishingRod);
+        itemsList.add(fishingRod);
         itemsList.add(record13);
         itemsList.add(recordCat);
 

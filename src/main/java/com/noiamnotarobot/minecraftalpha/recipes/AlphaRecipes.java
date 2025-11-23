@@ -94,15 +94,22 @@ public class AlphaRecipes {
             AlphaBlock.stoneOvenIdle,
             'B',
             AlphaItem.minecartEmpty);
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.boat, 1), "# #", "###", '#', AlphaBlock.planks);
+        GameRegistry.addRecipe(new ItemStack(AlphaItem.boat, 1), "# #", "###", '#', AlphaBlock.planks);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.bucketEmpty, 1), "# #", " # ", '#', AlphaItem.ingotIron);
         GameRegistry
             .addRecipe(new ItemStack(AlphaItem.striker, 1), "A ", " B", 'A', AlphaItem.ingotIron, 'B', AlphaItem.flint);
         GameRegistry.addRecipe(new ItemStack(AlphaItem.bread, 1), "###", '#', AlphaItem.wheat);
         GameRegistry
             .addRecipe(new ItemStack(AlphaBlock.stairCompactWood, 4), "#  ", "## ", "###", '#', AlphaBlock.planks);
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.fishingRod, 1), " #", " #X", "# X", '#', AlphaItem.stick, 'X',
-        // AlphaItem.silk);
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaItem.fishingRod, 1),
+            "  #",
+            " #X",
+            "# X",
+            '#',
+            AlphaItem.stick,
+            'X',
+            AlphaItem.silk);
         GameRegistry.addRecipe(
             new ItemStack(AlphaBlock.stairCompactStone, 4),
             "#  ",
@@ -110,8 +117,15 @@ public class AlphaRecipes {
             "###",
             '#',
             AlphaBlock.cobblestone);
-        // GameRegistry.addRecipe(new ItemStack(AlphaItem.painting, 1), "###", "#X#", "###", '#', AlphaItem.stick, 'X',
-        // AlphaBlock.cloth);
+        GameRegistry.addRecipe(
+            new ItemStack(AlphaItem.painting, 1),
+            "###",
+            "#X#",
+            "###",
+            '#',
+            AlphaItem.stick,
+            'X',
+            AlphaBlock.cloth);
         GameRegistry.addRecipe(
             new ItemStack(AlphaItem.appleGold, 1),
             "###",

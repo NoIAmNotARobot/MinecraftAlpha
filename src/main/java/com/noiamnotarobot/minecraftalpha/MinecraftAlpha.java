@@ -2,6 +2,7 @@ package com.noiamnotarobot.minecraftalpha;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -12,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.noiamnotarobot.minecraftalpha.biome.BiomeGenAlpha;
 import com.noiamnotarobot.minecraftalpha.block.AlphaBlock;
-import com.noiamnotarobot.minecraftalpha.entity.AlphaEntity;
+import com.noiamnotarobot.minecraftalpha.entity.AlphaEntities;
 import com.noiamnotarobot.minecraftalpha.item.AlphaItem;
 import com.noiamnotarobot.minecraftalpha.recipes.AlphaRecipes;
 import com.noiamnotarobot.minecraftalpha.world.WorldProviderAlpha;
@@ -52,6 +53,10 @@ public class MinecraftAlpha {
         serverSide = "com.noiamnotarobot.minecraftalpha.CommonProxy")
     public static CommonProxy proxy;
 
+    public static ResourceLocation getResourceLocation(String resource) {
+        return new ResourceLocation(MODID, resource);
+    }
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
@@ -64,7 +69,7 @@ public class MinecraftAlpha {
 
         AlphaBlock.preInit();
         AlphaItem.preInit();
-        AlphaEntity.preInit();
+        AlphaEntities.preInit();
 
         proxy.preInit(event);
     }
